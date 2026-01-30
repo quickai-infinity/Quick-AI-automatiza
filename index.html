@@ -6,11 +6,13 @@
     <title>Quick AI | Automatización Inteligente</title>
     
     <!-- Favicons -->
+    <!-- Estos archivos están configurados para buscarse en la misma carpeta (PNGs según tu repo) -->
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+    <link rel="apple-touch-icon" href="favicon-192.png">
     <meta name="theme-color" content="#0b0f14">
       
     <!-- Tailwind CSS -->
@@ -111,8 +113,8 @@
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <!-- Logo Section -->
             <div class="flex items-center gap-3">
-                <!-- LOGO CORREGIDO: object-contain para que se vea completo -->
-                <img src="logo-sin-fondo.jpg" alt="Quick AI Logo" class="h-12 w-auto object-contain">
+                <!-- CORREGIDO: Ahora apunta a .png como tienes en GitHub -->
+                <img src="logo-sin-fondo.png" alt="Quick AI Logo" class="h-12 w-auto object-contain block">
                 <span class="font-extrabold text-xl tracking-wide text-white">QUICK.IO</span>
             </div>
             
@@ -426,8 +428,8 @@
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-center md:text-left flex flex-col gap-2">
                 <div class="flex items-center justify-center md:justify-start gap-2">
-                    <!-- LOGO FOOTER CORREGIDO -->
-                    <img src="logo-sin-fondo.jpg" alt="Logo Small" class="h-8 w-auto object-contain">
+                    <!-- CORREGIDO: Ahora apunta a .png -->
+                    <img src="logo-sin-fondo.png" alt="Logo Small" class="h-8 w-auto object-contain block">
                     <h3 class="text-xl font-bold text-white tracking-tighter">QUICK.IO</h3>
                 </div>
                 <p class="text-gray-500 text-sm">hello@quickai.agency</p>
@@ -536,8 +538,8 @@
                 "faq-2-a": "Sí, Quick AI funciona globalmente a través de WhatsApp y telefonía VoIP.",
                 "faq-3-q": "¿Se integra con mi calendario/CRM?",
                 "faq-3-a": "Sí, nos conectamos con Google Calendar, HubSpot, Salesforce y más.",
-                "faq-4-q": "¿Cuánto tarda en implementarse?",
-                "faq-4-a": "Normalmente entre 3 a 5 días hábiles dependiendo de la complejidad."
+                "faq-4-q": "How long does implementation take?",
+                "faq-4-a": "Usually between 3 to 5 business days depending on complexity."
             },
             en: {
                 "hero-badge": "AI for Business",

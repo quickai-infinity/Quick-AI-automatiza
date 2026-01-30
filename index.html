@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick AI | Automatización Inteligente</title>
+    
     <!-- Favicons -->
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-<link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
-<link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
-<meta name="theme-color" content="#0b0f14">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
+    <meta name="theme-color" content="#0b0f14">
       
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,13 +107,15 @@
     <div class="bg-glow"></div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 left-0 bg-dark/80 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-bolt text-accent text-xl"></i>
-                <span class="font-bold text-xl tracking-tight">Quick AI</span>
+    <nav class="fixed w-full z-50 top-0 left-0 bg-dark/90 backdrop-blur-md border-b border-white/5 shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logo Section -->
+            <div class="flex items-center gap-3">
+                <img src="logo-1.jpg" alt="Quick AI Logo" class="h-10 w-10 rounded-lg shadow-neon object-cover">
+                <span class="font-extrabold text-xl tracking-wide text-white">QUICK.IO</span>
             </div>
             
+            <!-- Language Switch -->
             <div class="flex items-center gap-4">
                 <button onclick="toggleLanguage()" class="text-sm font-semibold hover:text-accent transition-colors">
                     <span id="lang-es" class="text-accent">ES</span>
@@ -124,60 +127,52 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-6 relative overflow-hidden">
-        <div class="container mx-auto max-w-4xl text-center">
+    <section class="pt-36 pb-20 px-6 relative overflow-hidden flex flex-col items-center">
+        <div class="container mx-auto max-w-4xl text-center flex flex-col items-center">
             <div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 text-accent text-sm font-medium animate-pulse">
                 <span data-i18n="hero-badge">IA para Negocios</span>
             </div>
             
-           <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-  Implementación estratégica. <span class="text-accent">Respuesta inmediata.</span>
-</h1>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                <span data-i18n="hero-title-1">Implementación estratégica.</span>
+                <br class="hidden md:block" />
+                <span class="text-accent" data-i18n="hero-title-2">Respuesta inmediata.</span>
+            </h1>
+            
+            <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl leading-relaxed" data-i18n="hero-desc">
+                No somos “rápidos” por hacer las cosas con prisa. Somos QuickAI porque, una vez implementado el sistema, tu negocio <b>responde en segundos</b>, <b>24/7</b>, y <b>cero leads se pierden</b> por no contestar.
+            </p>
 
-<p class="mt-4 text-lg text-white/80 max-w-2xl">
-  No somos “rápidos” por hacer las cosas con prisa. Somos QuickAI porque, una vez implementado el sistema,
-  tu negocio <b>responde en segundos</b>, <b>24/7</b>, y <b>cero leads se pierden</b> por no contestar.
-</p>
-
-<div class="mt-6 grid gap-3 max-w-2xl">
-  <div class="flex items-start gap-3">
-    <span class="mt-1 inline-block w-2 h-2 rounded-full bg-accent"></span>
-    <p class="text-white/85"><b>Implementación con precisión</b> (a medida, sin humo, sin plantillas genéricas).</p>
-  </div>
-  <div class="flex items-start gap-3">
-    <span class="mt-1 inline-block w-2 h-2 rounded-full bg-accent"></span>
-    <p class="text-white/85"><b>Automatizamos con inteligencia</b> (WhatsApp, Instagram, llamadas y reservas).</p>
-  </div>
-  <div class="flex items-start gap-3">
-    <span class="mt-1 inline-block w-2 h-2 rounded-full bg-accent"></span>
-    <p class="text-white/85"><b>Tu empresa responde en segundos</b>, 24/7 (más ventas, menos estrés, cero espera).</p>
-  </div>
-</div>
-
-<div class="mt-8 flex flex-col sm:flex-row gap-3">
-  <a href="#contacto" class="px-6 py-3 rounded-xl bg-accent text-dark font-semibold hover:opacity-90 transition">
-    Quiero automatizar mi negocio
-  </a>
-  <a href="#servicios" class="px-6 py-3 rounded-xl border border-white/15 text-white hover:bg-white/5 transition">
-    Ver automatizaciones
-  </a>
-</div>
-
-<p class="mt-5 text-sm text-white/60">
-  @QuickAI.io (redes) → <b>QuickAI.agency</b> (servicio profesional)
-</p>            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <!-- Features Grid in Hero -->
+            <div class="grid gap-4 max-w-2xl text-left w-full mb-10 bg-white/5 p-6 rounded-2xl border border-white/5">
+                <div class="flex items-start gap-3">
+                    <span class="mt-1.5 inline-block w-2 h-2 flex-shrink-0 rounded-full bg-accent shadow-[0_0_8px_#00f3ff]"></span>
+                    <p class="text-gray-300 text-sm md:text-base"><b class="text-white" data-i18n="feat-1-b">Implementación con precisión</b> <span data-i18n="feat-1">(a medida, sin humo, sin plantillas genéricas).</span></p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span class="mt-1.5 inline-block w-2 h-2 flex-shrink-0 rounded-full bg-accent shadow-[0_0_8px_#00f3ff]"></span>
+                    <p class="text-gray-300 text-sm md:text-base"><b class="text-white" data-i18n="feat-2-b">Automatizamos con inteligencia</b> <span data-i18n="feat-2">(WhatsApp, Instagram, llamadas y reservas).</span></p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span class="mt-1.5 inline-block w-2 h-2 flex-shrink-0 rounded-full bg-accent shadow-[0_0_8px_#00f3ff]"></span>
+                    <p class="text-gray-300 text-sm md:text-base"><b class="text-white" data-i18n="feat-3-b">Tu empresa responde en segundos</b>, <span data-i18n="feat-3">24/7 (más ventas, menos estrés, cero espera).</span></p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
                 <a href="#demo" class="w-full sm:w-auto px-8 py-4 bg-accent text-dark font-bold rounded-lg shadow-neon hover:shadow-neon-hover transition-all transform hover:-translate-y-1">
                     <span data-i18n="cta-primary">Solicitar demo gratis</span>
                 </a>
-
-                <!-- ✅ WHATSAPP HERO BUTTON (CONNECTED) -->
-                <a id="whatsappBtnHero" href="#" target="_blank" rel="noopener"
-                   class="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white font-bold rounded-lg hover:bg-white/5 transition-all flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-whatsapp"></i>
+                <!-- Connected WhatsApp Button -->
+                <a id="whatsappBtnHero" href="#" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white font-bold rounded-lg hover:bg-white/5 transition-all flex items-center justify-center gap-2 group">
+                    <i class="fa-brands fa-whatsapp text-xl group-hover:text-green-400 transition-colors"></i>
                     <span data-i18n="cta-secondary">Hablar por WhatsApp</span>
                 </a>
             </div>
+
+            <p class="mt-6 text-xs text-white/40 uppercase tracking-widest">
+                @QuickAI.io &rarr; QuickAI.agency
+            </p>
         </div>
     </section>
 
@@ -202,68 +197,64 @@
     </section>
 
     <!-- Services Section -->
-    <section class="py-20 px-6">
+    <section id="servicios" class="py-20 px-6">
         <div class="container mx-auto max-w-6xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-i18n="services-title">
                 ¿Qué hacemos?
             </h2>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="glass-card p-8 rounded-2xl">
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Card 1: WhatsApp -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col h-full">
                     <div class="w-14 h-14 rounded-full bg-green-500/10 flex items-center justify-center mb-6 text-green-400 text-2xl">
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3" data-i18n="service-1-title">Asistente WhatsApp IA</h3>
-                    <p class="text-gray-400" data-i18n="service-1-desc">
+                    <p class="text-gray-400 leading-relaxed" data-i18n="service-1-desc">
                         Respuestas instantáneas, naturales y personalizadas para cada cliente en tu WhatsApp Business.
                     </p>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="glass-card p-8 rounded-2xl">
+                <!-- Card 2: Voice -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col h-full">
                     <div class="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center mb-6 text-blue-400 text-2xl">
                         <i class="fa-solid fa-phone-volume"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3" data-i18n="service-2-title">Agente de Voz IA</h3>
-                    <p class="text-gray-400" data-i18n="service-2-desc">
+                    <p class="text-gray-400 leading-relaxed" data-i18n="service-2-desc">
                         Recibe y realiza llamadas, toma mensajes y gestiona consultas complejas con voz humana.
                     </p>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="glass-card p-8 rounded-2xl">
+                <!-- Card 3: Booking -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col h-full">
                     <div class="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent text-2xl">
                         <i class="fa-solid fa-calendar-check"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3" data-i18n="service-3-title">Calificación y Citas</h3>
-                    <p class="text-gray-400" data-i18n="service-3-desc">
+                    <p class="text-gray-400 leading-relaxed" data-i18n="service-3-desc">
                         Filtra prospectos automáticamente y agenda reuniones directamente en tu calendario.
                     </p>
+                </div>
+
+                <!-- Card 4: Instagram (Newly Integrated) -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col h-full border-white/10 hover:border-[#E1306C]/50 transition-colors">
+                    <div class="w-14 h-14 rounded-full bg-[#E1306C]/10 flex items-center justify-center mb-6 text-[#E1306C] text-2xl">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="service-4-title">Automatización Instagram</h3>
+                    <p class="text-gray-400 leading-relaxed mb-4" data-i18n="service-4-desc">
+                        Respuestas por DM, calificación automática, envío de precios y derivación a WhatsApp.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2 mt-auto">
+                        <li data-i18n="ig-feat-1">• Keywords DM (ej: "INFO")</li>
+                        <li data-i18n="ig-feat-2">• Link directo a llamada</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Servicio: Instagram -->
-<div class="rounded-2xl bg-card border border-white/10 p-6 hover:border-white/20 transition">
-  <div class="flex items-center gap-3">
-    <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-      <i class="fa-brands fa-instagram text-accent text-xl"></i>
-    </div>
-    <h3 class="text-xl font-semibold">Automatización de Instagram (DM)</h3>
-  </div>
 
-  <p class="mt-3 text-white/75">
-    Respuestas instantáneas por DM, calificación automática, envío de precios, captura de datos
-    y derivación a WhatsApp o agenda con un clic.
-  </p>
-
-  <ul class="mt-4 space-y-2 text-white/75">
-    <li>• Palabra clave por DM (ej: “AUTOMATIZAR”)</li>
-    <li>• Califica leads por tipo de negocio</li>
-    <li>• Link directo a llamada o WhatsApp</li>
-  </ul>
-</div>
     <!-- Who is it for -->
     <section class="py-10 px-6 bg-white/[0.02]">
         <div class="container mx-auto max-w-4xl text-center">
@@ -271,16 +262,16 @@
                 IDEAL PARA
             </h3>
             <div class="flex flex-wrap justify-center gap-4">
-                <span class="px-6 py-2 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition-colors" data-i18n="ind-1">Clínicas</span>
-                <span class="px-6 py-2 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition-colors" data-i18n="ind-2">Restaurantes</span>
-                <span class="px-6 py-2 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition-colors" data-i18n="ind-3">Inmobiliarias</span>
-                <span class="px-6 py-2 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition-colors" data-i18n="ind-4">Servicios Locales</span>
+                <span class="px-6 py-2 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition-colors cursor-default" data-i18n="ind-1">Clínicas</span>
+                <span class="px-6 py-2 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition-colors cursor-default" data-i18n="ind-2">Restaurantes</span>
+                <span class="px-6 py-2 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition-colors cursor-default" data-i18n="ind-3">Inmobiliarias</span>
+                <span class="px-6 py-2 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition-colors cursor-default" data-i18n="ind-4">Servicios Locales</span>
             </div>
         </div>
     </section>
 
     <!-- How it works -->
-    <section class="py-20 px-6">
+    <section class="py-24 px-6">
         <div class="container mx-auto max-w-4xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-i18n="steps-title">
                 Cómo funciona
@@ -290,7 +281,7 @@
                 <!-- Step 1 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-accent bg-dark shadow-[0_0_10px_inset_rgba(0,243,255,0.2)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-accent font-bold">1</div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-xl">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-xl hover:bg-white/5 transition-colors">
                         <h3 class="font-bold text-lg text-white mb-1" data-i18n="step-1-title">Conectamos tus canales</h3>
                         <p class="text-gray-400 text-sm" data-i18n="step-1-desc">Integramos nuestra IA con tu número de teléfono y sistemas actuales.</p>
                     </div>
@@ -299,7 +290,7 @@
                 <!-- Step 2 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-accent bg-dark shadow-[0_0_10px_inset_rgba(0,243,255,0.2)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-accent font-bold">2</div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-xl">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-xl hover:bg-white/5 transition-colors">
                         <h3 class="font-bold text-lg text-white mb-1" data-i18n="step-2-title">Entrenamos respuestas y flujos</h3>
                         <p class="text-gray-400 text-sm" data-i18n="step-2-desc">Personalizamos la base de conocimiento para que hable como tú.</p>
                     </div>
@@ -308,7 +299,7 @@
                 <!-- Step 3 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-accent bg-dark shadow-[0_0_10px_inset_rgba(0,243,255,0.2)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-accent font-bold">3</div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-xl">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-xl hover:bg-white/5 transition-colors">
                         <h3 class="font-bold text-lg text-white mb-1" data-i18n="step-3-title">Empiezas a captar 24/7</h3>
                         <p class="text-gray-400 text-sm" data-i18n="step-3-desc">Lanza tu agente y olvídate de perder clientes fuera de horario.</p>
                     </div>
@@ -324,14 +315,14 @@
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Starter -->
-                <div class="glass-card p-8 rounded-2xl border-t-4 border-gray-600 flex flex-col">
+                <div class="glass-card p-8 rounded-2xl border-t-4 border-gray-600 flex flex-col hover:border-gray-500 transition-colors">
                     <h3 class="text-2xl font-bold mb-4">Starter</h3>
                     <p class="text-gray-400 mb-6 flex-grow" data-i18n="price-1">Automatización de WhatsApp para pequeños negocios.</p>
                     <div class="text-sm text-gray-500 font-mono">WHATSAPP AI</div>
                 </div>
 
                 <!-- Pro -->
-                <div class="glass-card p-8 rounded-2xl border-t-4 border-accent relative transform md:-translate-y-4 flex flex-col">
+                <div class="glass-card p-8 rounded-2xl border-t-4 border-accent relative transform md:-translate-y-4 flex flex-col shadow-neon hover:shadow-neon-hover transition-all">
                     <div class="absolute top-0 right-0 bg-accent text-dark text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
                     <h3 class="text-2xl font-bold mb-4 text-white">Pro</h3>
                     <p class="text-gray-400 mb-6 flex-grow" data-i18n="price-2">WhatsApp + Agente de Voz para máxima cobertura.</p>
@@ -339,7 +330,7 @@
                 </div>
 
                 <!-- Custom -->
-                <div class="glass-card p-8 rounded-2xl border-t-4 border-secondary flex flex-col">
+                <div class="glass-card p-8 rounded-2xl border-t-4 border-secondary flex flex-col hover:border-blue-500 transition-colors">
                     <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
                     <p class="text-gray-400 mb-6 flex-grow" data-i18n="price-3">Multi-locaciones, integraciones CRM avanzadas.</p>
                     <div class="text-sm text-secondary font-mono">FULL SUITE</div>
@@ -347,16 +338,19 @@
             </div>
             
             <div class="text-center mt-12">
-                <p class="text-gray-400" data-i18n="price-contact">Contáctanos para precios detallados.</p>
+                <a href="#contactForm" class="text-gray-400 hover:text-white underline underline-offset-4 transition-colors" data-i18n="price-contact">Contáctanos para precios detallados.</a>
             </div>
         </div>
     </section>
 
     <!-- Demo Form -->
-    <section id="demo" class="py-24 px-6 relative">
-        <div class="absolute inset-0 bg-accent/5 skew-y-3 z-0 transform origin-bottom-right"></div>
+    <section id="demo" class="py-24 px-6 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute inset-0 bg-accent/5 skew-y-3 z-0 transform origin-bottom-right pointer-events-none"></div>
+        <div class="absolute -top-20 -left-20 w-64 h-64 bg-secondary/20 rounded-full blur-[100px]"></div>
+
         <div class="container mx-auto max-w-2xl relative z-10">
-            <div class="glass-card p-8 md:p-12 rounded-3xl shadow-2xl">
+            <div class="glass-card p-8 md:p-12 rounded-3xl shadow-2xl border border-white/10">
                 <h2 class="text-3xl font-bold text-center mb-2" data-i18n="form-title">Solicitar Demo Gratis</h2>
                 <p class="text-center text-gray-400 mb-8" data-i18n="form-subtitle">Déjanos tus datos y te mostraremos cómo funciona.</p>
                 
@@ -406,19 +400,19 @@
         <div class="container mx-auto max-w-3xl">
             <h2 class="text-3xl font-bold text-center mb-12">FAQ</h2>
             <div class="space-y-4">
-                <div class="glass-card p-6 rounded-xl">
+                <div class="glass-card p-6 rounded-xl hover:bg-white/5 transition-colors">
                     <h4 class="font-bold text-accent mb-2" data-i18n="faq-1-q">¿Necesito cambiar mi número de teléfono?</h4>
                     <p class="text-gray-400 text-sm" data-i18n="faq-1-a">No. Podemos integrar la IA en tu número actual o proporcionarte uno nuevo.</p>
                 </div>
-                <div class="glass-card p-6 rounded-xl">
+                <div class="glass-card p-6 rounded-xl hover:bg-white/5 transition-colors">
                     <h4 class="font-bold text-accent mb-2" data-i18n="faq-2-q">¿Funciona en mi país?</h4>
                     <p class="text-gray-400 text-sm" data-i18n="faq-2-a">Sí, Quick AI funciona globalmente a través de WhatsApp y telefonía VoIP.</p>
                 </div>
-                <div class="glass-card p-6 rounded-xl">
+                <div class="glass-card p-6 rounded-xl hover:bg-white/5 transition-colors">
                     <h4 class="font-bold text-accent mb-2" data-i18n="faq-3-q">¿Se integra con mi calendario/CRM?</h4>
                     <p class="text-gray-400 text-sm" data-i18n="faq-3-a">Sí, nos conectamos con Google Calendar, HubSpot, Salesforce y más.</p>
                 </div>
-                <div class="glass-card p-6 rounded-xl">
+                <div class="glass-card p-6 rounded-xl hover:bg-white/5 transition-colors">
                     <h4 class="font-bold text-accent mb-2" data-i18n="faq-4-q">¿Cuánto tarda en implementarse?</h4>
                     <p class="text-gray-400 text-sm" data-i18n="faq-4-a">Normalmente entre 3 a 5 días hábiles dependiendo de la complejidad.</p>
                 </div>
@@ -429,14 +423,15 @@
     <!-- Footer -->
     <footer class="border-t border-white/5 py-12 px-6 bg-black/40">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-left">
-                <h3 class="text-xl font-bold text-white tracking-tighter mb-1">Quick AI</h3>
+            <div class="text-center md:text-left flex flex-col gap-2">
+                <div class="flex items-center justify-center md:justify-start gap-2">
+                    <img src="logo-1.jpg" alt="Logo Small" class="h-6 w-6 rounded-full">
+                    <h3 class="text-xl font-bold text-white tracking-tighter">QUICK.IO</h3>
+                </div>
                 <p class="text-gray-500 text-sm">hello@quickai.agency</p>
             </div>
             
-            <!-- ✅ WHATSAPP FOOTER BUTTON (CONNECTED) -->
-            <a id="whatsappBtnFooter" href="#" target="_blank" rel="noopener"
-               class="px-6 py-2 rounded-full border border-white/10 hover:bg-white/5 transition-colors text-sm flex items-center gap-2">
+            <a id="whatsappBtnFooter" href="#" target="_blank" rel="noopener" class="px-6 py-2 rounded-full border border-white/10 hover:bg-white/5 transition-colors text-sm flex items-center gap-2">
                 <i class="fa-brands fa-whatsapp text-green-400"></i> WhatsApp
             </a>
 
@@ -448,19 +443,19 @@
 
     <!-- JavaScript for Logic -->
     <script>
-        // ✅ WhatsApp config (already set with your number)
+        // ✅ WhatsApp config
         const WHATSAPP_NUMBER = "34677304620";
 
         function buildWhatsAppLink(lang) {
             const msgES =
-  "Hola  Vengo desde la web de Quick AI.\n\n" +
+  "Hola. Vengo desde la web de Quick AI.\n\n" +
   "1) Mi negocio es: (clínica / restaurante / inmobiliaria / otro)\n" +
   "2) Quiero automatizar: WhatsApp / llamadas / ambos\n" +
   "3) Ciudad / país: \n" +
   "4) ¿Cuántos mensajes o llamadas recibes al día?: \n\n" +
   "¿Me puedes mostrar una demo?";
             const msgEN =
-  "Hi  I'm coming from the Quick AI website.\n\n" +
+  "Hi. I'm coming from the Quick AI website.\n\n" +
   "1) My business is: (clinic / restaurant / real estate / other)\n" +
   "2) I want to automate: WhatsApp / calls / both\n" +
   "3) City / country: \n" +
@@ -483,9 +478,15 @@
         const translations = {
             es: {
                 "hero-badge": "IA para Negocios",
-                "hero-title": "Automatiza tu atención al cliente con IA",
-                "hero-span": "(WhatsApp + Llamadas)",
-                "hero-subtitle": "Responde 24/7, agenda citas y califica clientes sin perder oportunidades.",
+                "hero-title-1": "Implementación estratégica.",
+                "hero-title-2": "Respuesta inmediata.",
+                "hero-desc": "No somos “rápidos” por hacer las cosas con prisa. Somos QuickAI porque, una vez implementado el sistema, tu negocio responde en segundos, 24/7, y cero leads se pierden por no contestar.",
+                "feat-1-b": "Implementación con precisión",
+                "feat-1": "(a medida, sin humo, sin plantillas genéricas).",
+                "feat-2-b": "Automatizamos con inteligencia",
+                "feat-2": "(WhatsApp, Instagram, llamadas y reservas).",
+                "feat-3-b": "Tu empresa responde en segundos",
+                "feat-3": "24/7 (más ventas, menos estrés, cero espera).",
                 "cta-primary": "Solicitar demo gratis",
                 "cta-secondary": "Hablar por WhatsApp",
                 "proof-1": "24/7 Activo",
@@ -498,6 +499,10 @@
                 "service-2-desc": "Recibe y realiza llamadas, toma mensajes y gestiona consultas complejas con voz humana.",
                 "service-3-title": "Calificación y Citas",
                 "service-3-desc": "Filtra prospectos automáticamente y agenda reuniones directamente en tu calendario.",
+                "service-4-title": "Automatización Instagram",
+                "service-4-desc": "Respuestas por DM, calificación automática, envío de precios y derivación a WhatsApp.",
+                "ig-feat-1": "• Keywords DM (ej: \"INFO\")",
+                "ig-feat-2": "• Link directo a llamada",
                 "industries-title": "IDEAL PARA",
                 "ind-1": "Clínicas",
                 "ind-2": "Restaurantes",
@@ -534,9 +539,15 @@
             },
             en: {
                 "hero-badge": "AI for Business",
-                "hero-title": "Automate your customer service with AI",
-                "hero-span": "(WhatsApp + Calls)",
-                "hero-subtitle": "Answer 24/7, book appointments and qualify leads without missing opportunities.",
+                "hero-title-1": "Strategic implementation.",
+                "hero-title-2": "Immediate response.",
+                "hero-desc": "We are not \"quick\" because we rush. We are QuickAI because, once the system is implemented, your business responds in seconds, 24/7, and zero leads are lost due to missed calls.",
+                "feat-1-b": "Precision implementation",
+                "feat-1": "(tailored, no smoke, no generic templates).",
+                "feat-2-b": "Intelligent automation",
+                "feat-2": "(WhatsApp, Instagram, calls, and bookings).",
+                "feat-3-b": "Your company responds in seconds",
+                "feat-3": "24/7 (more sales, less stress, zero waiting).",
                 "cta-primary": "Request Free Demo",
                 "cta-secondary": "Chat on WhatsApp",
                 "proof-1": "Active 24/7",
@@ -549,6 +560,10 @@
                 "service-2-desc": "Receive and make calls, take messages, and handle complex queries with human-like voice.",
                 "service-3-title": "Qualification & Booking",
                 "service-3-desc": "Automatically filter leads and book meetings directly into your calendar.",
+                "service-4-title": "Instagram Automation",
+                "service-4-desc": "DM responses, automatic qualification, price sending, and routing to WhatsApp.",
+                "ig-feat-1": "• Keywords DM (e.g., \"INFO\")",
+                "ig-feat-2": "• Direct link to call",
                 "industries-title": "BUILT FOR",
                 "ind-1": "Clinics",
                 "ind-2": "Restaurants",
@@ -593,7 +608,7 @@
             currentLang = currentLang === 'es' ? 'en' : 'es';
             updateContent();
             updateLangToggleUI();
-            syncWhatsAppLinks(); // ✅ update WA link when changing language
+            syncWhatsAppLinks(); 
         }
 
         function updateContent() {
@@ -601,7 +616,9 @@
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[currentLang][key]) {
-                    el.textContent = translations[currentLang][key];
+                    // Handle nested bold tags if necessary, but simple text replacement is safer
+                    // For the hero features, we separate bold and normal text in spans
+                    el.innerHTML = translations[currentLang][key]; 
                 }
             });
             // Update document title slightly
@@ -640,7 +657,7 @@
 
         // Initialize
         updateLangToggleUI();
-        syncWhatsAppLinks(); // ✅ set WA links on load
+        syncWhatsAppLinks();
     </script>
 </body>
 </html>

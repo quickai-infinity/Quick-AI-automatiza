@@ -341,7 +341,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <a href="#contactForm" class="text-gray-400 hover:text-white underline underline-offset-4 transition-colors" data-i18n="price-contact">Contáctanos para precios detallados.</a>
+                <a href="#" class="text-gray-400 hover:text-white underline underline-offset-4 transition-colors" data-i18n="price-contact">Contáctanos para precios detallados.</a>
             </div>
         </div>
     </section>
@@ -447,24 +447,91 @@
 
     <!-- JavaScript for Logic -->
     <script>
-        // ✅ WhatsApp config
+        // ✅ CONFIGURACIÓN CENTRALIZADA (Fase 2)
         const WHATSAPP_NUMBER = "34677304620";
+        const N8N_WEBHOOK_URL = "https://panel1.quickai.agency/webhook/captura-leads";
+        const CALENDLY_URL = "https://calendly.com/juanquikai/30min";
+
+        let currentLang = 'es';
+
+        // --- Gestión del Formulario (CONEXIÓN N8N + CALENDLY) ---
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const form = this;
+                const btn = form.querySelector('button');
+                const originalText = btn.innerHTML;
+                
+                // UI: Cargando
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+                btn.disabled = true;
+
+                // Captura de datos
+                const inputs = form.querySelectorAll('input');
+                const formData = {
+                    nombre: inputs[0].value,
+                    negocio: inputs[1].value,
+                    pais: inputs[2].value,
+                    whatsapp: inputs[3].value,
+                    email: inputs[4].value,
+                    interes: form.querySelector('select').value,
+                    origen: "quickAI.io Landing Page",
+                    timestamp: new Date().toISOString()
+                };
+
+                try {
+                    // Envío a n8n
+                    const response = await fetch(N8N_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+
+                    // Éxito: Mostrar mensaje visual
+                    form.style.display = 'none';
+                    document.getElementById('formSuccess').classList.remove('hidden');
+                    
+                    // Redirección inmediata a tu Calendly
+                    setTimeout(() => {
+                        window.location.href = CALENDLY_URL;
+                    }, 2000);
+
+                } catch (error) {
+                    console.error("Error enviando lead:", error);
+                    // Fallback: Si n8n cae, enviamos al usuario a Calendly igualmente para no perder la cita
+                    form.style.display = 'none';
+                    document.getElementById('formSuccess').classList.remove('hidden');
+                    setTimeout(() => {
+                        window.location.href = CALENDLY_URL;
+                    }, 1500);
+                }
+            });
+        }
+
+        // --- Lógica de Idiomas y WhatsApp ---
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            updateContent();
+            updateLangToggleUI();
+            syncWhatsAppLinks(); 
+        }
 
         function buildWhatsAppLink(lang) {
             const msgES =
-  "Hola. Vengo desde la web de Quick AI.\n\n" +
-  "1) Mi negocio es: (clínica / restaurante / inmobiliaria / otro)\n" +
-  "2) Quiero automatizar: WhatsApp / llamadas / ambos\n" +
-  "3) Ciudad / país: \n" +
-  "4) ¿Cuántos mensajes o llamadas recibes al día?: \n\n" +
-  "¿Me puedes mostrar una demo?";
+                "Hola. Vengo desde la web de Quick AI.\n\n" +
+                "1) Mi negocio es: (clínica / restaurante / inmobiliaria / otro)\n" +
+                "2) Quiero automatizar: WhatsApp / llamadas / ambos\n" +
+                "3) Ciudad / país: \n" +
+                "4) ¿Cuántos mensajes o llamadas recibes al día?: \n\n" +
+                "¿Me puedes mostrar una demo?";
             const msgEN =
-  "Hi. I'm coming from the Quick AI website.\n\n" +
-  "1) My business is: (clinic / restaurant / real estate / other)\n" +
-  "2) I want to automate: WhatsApp / calls / both\n" +
-  "3) City / country: \n" +
-  "4) About how many messages or calls per day?: \n\n" +
-  "Can you show me a demo?";
+                "Hi. I'm coming from the Quick AI website.\n\n" +
+                "1) My business is: (clinic / restaurant / real estate / other)\n" +
+                "2) I want to automate: WhatsApp / calls / both\n" +
+                "3) City / country: \n" +
+                "4) About how many messages or calls per day?: \n\n" +
+                "Can you show me a demo?";
             const text = (lang === "en") ? msgEN : msgES;
             return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
         }
@@ -538,8 +605,8 @@
                 "faq-2-a": "Sí, Quick AI funciona globalmente a través de WhatsApp y telefonía VoIP.",
                 "faq-3-q": "¿Se integra con mi calendario/CRM?",
                 "faq-3-a": "Sí, nos conectamos con Google Calendar, HubSpot, Salesforce y más.",
-                "faq-4-q": "How long does implementation take?",
-                "faq-4-a": "Usually between 3 to 5 business days depending on complexity."
+                "faq-4-q": "¿Cuánto tarda en implementarse?",
+                "faq-4-a": "Normalmente entre 3 a 5 días hábiles dependiendo de la complejidad."
             },
             en: {
                 "hero-badge": "AI for Business",
@@ -604,29 +671,15 @@
             }
         };
 
-        // --- State ---
-        let currentLang = 'es';
-
-        // --- Functions ---
-        function toggleLanguage() {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
-            updateContent();
-            updateLangToggleUI();
-            syncWhatsAppLinks(); 
-        }
-
         function updateContent() {
             const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[currentLang][key]) {
-                    // Handle nested bold tags if necessary, but simple text replacement is safer
-                    // For the hero features, we separate bold and normal text in spans
                     el.innerHTML = translations[currentLang][key]; 
                 }
             });
-            // Update document title slightly
-            document.title = currentLang === 'es' ? "Quick AI | Automatización Inteligente" : "Quick AI | Intelligent Automation";
+            document.title = currentLang === 'es' ? "quickAI.io | Automatización Inteligente" : "quickAI.io | Intelligent Automation";
         }
 
         function updateLangToggleUI() {
@@ -642,26 +695,7 @@
             }
         }
 
-        // --- Form Handling ---
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Simulate API call
-            const form = this;
-            const btn = form.querySelector('button');
-            const originalText = btn.innerHTML;
-            
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                form.style.display = 'none';
-                document.getElementById('formSuccess').classList.remove('hidden');
-            }, 1500);
-        });
-
         // Initialize
         updateLangToggleUI();
         syncWhatsAppLinks();
     </script>
-</body>
-</html>

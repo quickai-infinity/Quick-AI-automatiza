@@ -133,8 +133,13 @@
         
         <!-- Contenedor Izquierdo: Imagen (Ocupa el 50% en PC) -->
         <div class="flex justify-center lg:justify-end items-center w-full lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
-            <div class="animate-float">
-                <img src="IMG_1968.jpeg" alt="Quick AI Próximamente" class="overlay-image animate-fade-in" onerror="this.src='https://via.placeholder.com/600x600/0b0f14/00f3ff?text=Quick+AI'">
+            <!-- Se añade un tamaño mínimo/cuadrado (aspect-square y max-w) para que el layout no colapse si la imagen falla -->
+            <div class="animate-float w-full max-w-sm lg:max-w-md aspect-square flex justify-center items-center">
+                <img 
+                    src="./IMG_1968.jpeg" 
+                    alt="Quick AI Próximamente" 
+                    class="overlay-image animate-fade-in w-full h-full object-contain" 
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCA4MDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMGIwZjE0IiBzdHJva2U9IiMwMGYzZmYiIHN0cm9rZS13aWR0aD0iMiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSI0MCIgZmlsbD0iIzAwZjNmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlbiBubyBlbmNvbnRyYWRhPC90ZXh0Pjwvc3ZnPg==';">
             </div>
         </div>
 
@@ -169,7 +174,7 @@
     <nav class="fixed w-full z-50 top-0 left-0 bg-dark/80 backdrop-blur-lg border-b border-white/5">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="logo-sin-fondo.png" alt="Quick AI Logo" class="h-10 w-auto" onerror="this.style.display='none'">
+                <img src="./logo-sin-fondo.png" alt="Quick AI Logo" class="h-10 w-auto" onerror="this.style.display='none'">
                 <span class="font-black text-2xl tracking-tighter text-white">quickAI<span class="text-accent">.io</span></span>
             </div>
             <div class="hidden md:flex items-center gap-6">

@@ -28,9 +28,19 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     },
-                    boxShadow: {
-                        'neon': '0 0 15px rgba(0, 243, 255, 0.3)',
-                        'neon-hover': '0 0 25px rgba(0, 243, 255, 0.5)',
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
                     }
                 }
             }
@@ -45,7 +55,7 @@
             overflow-x: hidden;
         }
 
-        /* Overlay de bloqueo */
+        /* Overlay de bloqueo "Próximamente" */
         .coming-soon-overlay {
             position: fixed;
             inset: 0;
@@ -55,25 +65,26 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         @media (min-width: 1024px) {
             .coming-soon-overlay {
                 flex-direction: row;
-                gap: 4rem;
+                padding: 0;
             }
         }
 
         .overlay-image {
-            max-height: 50vh;
+            max-height: 45vh;
             width: auto;
-            object-contain: contain;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.2));
         }
 
         @media (min-width: 1024px) {
             .overlay-image {
-                max-height: 70vh;
+                max-height: 75vh;
             }
         }
 
@@ -82,20 +93,34 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            padding: 1rem 2rem;
+            padding: 1.25rem 2rem;
             border-radius: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             width: 100%;
             max-width: 320px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.025em;
         }
 
-        .bg-glow {
+        .btn-whatsapp {
+            background-color: #25d366;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-call {
+            background-color: #2563eb;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .bg-glow-main {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.08), transparent 60%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle, rgba(0, 243, 255, 0.05) 0%, transparent 70%);
             z-index: -1;
             pointer-events: none;
         }
@@ -105,61 +130,74 @@
 
     <!-- CAPA DE BLOQUEO "PRÓXIMAMENTE" -->
     <div class="coming-soon-overlay">
-        <!-- Lado izquierdo: Imagen -->
-        <div class="flex justify-center lg:justify-end w-full lg:w-1/2 mb-8 lg:mb-0">
-            <img src="IMG_1968.jpeg" alt="Quick AI Próximamente" class="overlay-image animate-fade-in">
+        
+        <!-- Contenedor Izquierdo: Imagen (Ocupa el 50% en PC) -->
+        <div class="flex justify-center lg:justify-end items-center w-full lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
+            <div class="animate-float">
+                <img src="IMG_1968.jpeg" alt="Quick AI Próximamente" class="overlay-image animate-fade-in" onerror="this.src='https://via.placeholder.com/600x600/0b0f14/00f3ff?text=Quick+AI'">
+            </div>
         </div>
 
-        <!-- Lado derecho: Botones -->
-        <div class="flex flex-col items-center lg:items-start w-full lg:w-1/2 gap-4">
-            <h2 class="text-2xl lg:text-3xl font-bold mb-2 text-center lg:text-left">Contáctanos ahora</h2>
+        <!-- Contenedor Derecho: Botones (Ocupa el 50% en PC) -->
+        <div class="flex flex-col items-center lg:items-start w-full lg:w-1/2 lg:pl-12 gap-5 animate-fade-in" style="animation-delay: 0.2s;">
+            <div class="text-center lg:text-left mb-2">
+                <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight mb-2">
+                    Estamos llegando.
+                </h2>
+                <p class="text-gray-400 text-lg lg:text-xl font-medium">Contáctanos directamente:</p>
+            </div>
             
-            <a href="https://wa.me/34677304620" class="overlay-btn bg-[#25d366] text-white hover:scale-105 active:scale-95">
+            <a href="https://wa.me/34677304620" class="overlay-btn btn-whatsapp text-white hover:scale-105 active:scale-95">
                 <i class="fa-brands fa-whatsapp text-2xl"></i>
                 WhatsApp Agente
             </a>
 
-            <a href="tel:+12186077636" class="overlay-btn bg-secondary text-white hover:scale-105 active:scale-95">
+            <a href="tel:+12186077636" class="overlay-btn btn-call text-white hover:scale-105 active:scale-95">
                 <i class="fa-solid fa-phone text-xl"></i>
                 Llamar (USA)
             </a>
+
+            <p class="mt-4 text-xs text-gray-500 uppercase tracking-widest font-bold">
+                Quick AI &copy; 2024
+            </p>
         </div>
     </div>
 
-    <!-- CONTENIDO ORIGINAL DEL SITIO (BLOQUEADO POR EL OVERLAY) -->
-    <div class="bg-glow"></div>
+    <!-- CONTENIDO DE FONDO (DISEÑO BASE) -->
+    <div class="bg-glow-main"></div>
 
-    <nav class="fixed w-full z-50 top-0 left-0 bg-dark/90 backdrop-blur-md border-b border-white/5 shadow-lg">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <nav class="fixed w-full z-50 top-0 left-0 bg-dark/80 backdrop-blur-lg border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="logo-sin-fondo.png" alt="Quick AI Logo" class="h-12 w-auto object-contain">
-                <span class="font-extrabold text-xl tracking-wide text-white">quickAI.io</span>
+                <img src="logo-sin-fondo.png" alt="Quick AI Logo" class="h-10 w-auto" onerror="this.style.display='none'">
+                <span class="font-black text-2xl tracking-tighter text-white">quickAI<span class="text-accent">.io</span></span>
             </div>
-            <div class="flex items-center gap-4">
-                <button class="text-sm font-semibold hover:text-accent transition-colors">
-                    <span class="text-accent">ES</span> | <span class="text-gray-500">EN</span>
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Servicios</a>
+                <a href="#" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Precios</a>
+                <button class="px-5 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-sm font-bold transition-all">
+                    Login
                 </button>
             </div>
         </div>
     </nav>
 
-    <section class="pt-36 pb-20 px-6 relative flex flex-col items-center">
-        <div class="container mx-auto max-w-4xl text-center">
-            <div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 text-accent text-sm font-medium">
-                IA para Negocios
-            </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-                Implementación estratégica. <br>
-                <span class="text-accent">Respuesta inmediata.</span>
+    <main class="relative min-h-screen flex flex-col items-center justify-center pt-20 px-6">
+        <div class="max-w-4xl text-center">
+            <h1 class="text-5xl md:text-7xl font-black mb-8 leading-none tracking-tight">
+                Impulsa tu negocio con <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Inteligencia Real.</span>
             </h1>
-            <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                No somos “rápidos” por hacer las cosas con prisa. Somos QuickAI porque tu negocio responde en segundos, 24/7.
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Automatización de procesos y atención al cliente de alto nivel. Respuestas en milisegundos, resultados tangibles.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="px-8 py-4 bg-accent text-dark font-bold rounded-lg shadow-neon">Solicitar demo gratis</button>
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="px-8 py-4 bg-accent text-dark font-black rounded-xl cursor-not-allowed opacity-50">
+                    PRÓXIMAMENTE
+                </div>
             </div>
         </div>
-    </section>
+    </main>
 
 </body>
 </html>

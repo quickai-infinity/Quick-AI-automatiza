@@ -40,25 +40,38 @@
     <div class="circuit-bg"></div>
     <div class="fixed inset-0 bg-glow-accent pointer-events-none z-0"></div>
 
-    <nav class="glass-nav fixed w-full top-0 z-50">
-
-        <div class="flex items-center gap-4">
-    <a href="index.html" class="md:hidden text-zinc-400 hover:text-brand-accent p-2 -ml-2">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-    </a>
-    
-    <a href="index.html" class="font-bold text-xl tracking-tighter text-white">
-        quickAI<span class="text-brand-accent">.io</span>
-    </a>
-</div>
+    <nav class="fixed w-full top-0 z-50 bg-[#020202]/90 backdrop-blur-lg border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="index.html" class="flex items-center group">
-                <span class="font-bold text-xl tracking-tighter text-white">quickAI<span class="text-brand-accent">.io</span></span>
-            </a>
-            <div class="hidden md:flex gap-10 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">
-                <a href="index.html#soluciones" class="hover:text-brand-accent transition-colors">Volver</a>
-                <a href="index.html#contacto" class="hover:text-brand-accent transition-colors">Agendar Demo</a>
+            
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="p-2 -ml-2 text-zinc-400 hover:text-brand-accent md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </a>
+                <a href="index.html" class="font-bold text-xl tracking-tighter text-white">quickAI<span class="text-brand-accent">.io</span></a>
             </div>
+
+            <div class="hidden md:flex gap-10 text-[11px] font-bold text-zinc-500 uppercase tracking-widest items-center">
+                <a href="index.html#soluciones" class="hover:text-white transition-colors">Volver</a>
+                <a href="index.html#contacto" class="hover:text-white transition-colors">Agendar Demo</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-white p-2 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-[#020202] border-b border-white/10 px-6 py-8 space-y-6 shadow-2xl absolute w-full left-0 top-20 z-40">
+            <a href="index.html" class="block text-sm font-bold text-zinc-400 uppercase tracking-widest">Inicio</a>
+            <div class="pt-4 border-t border-white/5 space-y-4">
+                <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-[0.2em]">Industrias</p>
+                <a href="clinicas.html" class="block text-sm text-brand-accent">Clínicas</a>
+                <a href="lotes-autos.html" class="block text-sm text-zinc-400">Lotes de Autos</a>
+                <a href="real-estate.html" class="block text-sm text-zinc-400">Real Estate</a>
+                <a href="pymes.html" class="block text-sm text-zinc-400">Pymes</a>
+                <a href="managers.html" class="block text-sm text-zinc-400">Managers</a>
+                <a href="motores-conversion.html" class="block text-sm text-zinc-400">Motores de Conversión</a>
+            </div>
+            <a href="index.html#contacto" class="block pt-4 text-sm font-bold text-zinc-400 uppercase tracking-widest border-t border-white/5">Contacto</a>
         </div>
     </nav>
 
@@ -114,6 +127,19 @@
     </main>
 
     <script>
+        // Funcionalidad del Menú Móvil
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            if(btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
+        });
+
+        // Scroll
         let scrollTimer;
         window.addEventListener('scroll', () => {
             document.body.classList.add('is-scrolling');

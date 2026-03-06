@@ -27,7 +27,6 @@
     <style>
         html, body { background-color: #020202; color: #e4e4e7; overflow-x: hidden !important; max-width: 100vw; }
         .circuit-bg { position: fixed; inset: 0; opacity: 0.01; pointer-events: none; z-index: 1; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0z' fill='%23fff'/%3E%3C/svg%3E"); }
-        .glass-nav { background: rgba(2, 2, 2, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.04); }
         .service-card { background: #080809; border: 1px solid rgba(255,255,255,0.01); transition: all 0.5s; position: relative; overflow: hidden; }
         .dot-pattern { position: absolute; inset: 0; opacity: 0.15; background-image: radial-gradient(rgba(0, 255, 159, 0.4) 1px, transparent 1px); background-size: 10px 10px; mask-image: radial-gradient(ellipse at center, black 15%, transparent 75%); }
         .light-sweep { position: absolute; top: 0; left: -150%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(0, 255, 159, 0.1), transparent); transform: skewX(-20deg); pointer-events: none; }
@@ -38,15 +37,40 @@
     <div class="circuit-bg"></div>
     <div class="fixed inset-0 bg-glow-accent pointer-events-none z-0"></div>
 
-    <nav class="glass-nav fixed w-full top-0 z-50">
+    <nav class="fixed w-full top-0 z-50 bg-[#020202]/90 backdrop-blur-lg border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="index.html" class="flex items-center group">
-                <span class="font-bold text-xl tracking-tighter text-white">quickAI<span class="text-brand-accent">.io</span></span>
-            </a>
-            <div class="hidden md:flex gap-10 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">
-                <a href="index.html#soluciones" class="hover:text-brand-accent transition-colors">Volver</a>
-                <a href="index.html#contacto" class="hover:text-brand-accent transition-colors">Monetizar Audiencia</a>
+            
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="p-2 -ml-2 text-zinc-400 hover:text-brand-accent md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </a>
+                <a href="index.html" class="font-bold text-xl tracking-tighter text-white">quickAI<span class="text-brand-accent">.io</span></a>
             </div>
+
+            <div class="hidden md:flex gap-10 text-[11px] font-bold text-zinc-500 uppercase tracking-widest items-center">
+                <a href="index.html#soluciones" class="hover:text-white transition-colors">Volver</a>
+                <a href="index.html#contacto" class="hover:text-white transition-colors">Monetizar Audiencia</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-white p-2 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-[#020202] border-b border-white/10 px-6 py-8 space-y-6 shadow-2xl absolute w-full left-0 top-20 z-40">
+            <a href="index.html" class="block text-sm font-bold text-zinc-400 uppercase tracking-widest">Inicio</a>
+            <div class="pt-4 border-t border-white/5 space-y-4">
+                <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-[0.2em]">Industrias</p>
+                <a href="clinicas.html" class="block text-sm text-zinc-400">Clínicas</a>
+                <a href="consultorios.html" class="block text-sm text-zinc-400">Consultorios</a>
+                <a href="lotes-autos.html" class="block text-sm text-zinc-400">Lotes de Autos</a>
+                <a href="real-estate.html" class="block text-sm text-zinc-400">Real Estate</a>
+                <a href="pymes.html" class="block text-sm text-zinc-400">Pymes</a>
+                <a href="influencers.html" class="block text-sm text-brand-accent">Influencers</a>
+                <a href="managers.html" class="block text-sm text-zinc-400">Managers</a>
+                <a href="motores-conversion.html" class="block text-sm text-zinc-400">Motores de Conversión</a>
+            </div>
+            <a href="index.html#contacto" class="block pt-4 text-sm font-bold text-zinc-400 uppercase tracking-widest border-t border-white/5">Contacto</a>
         </div>
     </nav>
 
@@ -92,5 +116,18 @@
             </a>
         </section>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            if(btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -83,10 +83,19 @@
 
         .service-card:hover .light-sweep { left: 150%; transition: left 0.8s ease-in-out; }
 
+        /* Ajuste de Logos de Clientes */
         .client-logo-placeholder { 
-            opacity: 0.65; transition: all 0.3s; filter: grayscale(100%) brightness(1.5); height: 40px; object-fit: contain;
+            opacity: 1; 
+            transition: all 0.3s ease-in-out; 
+            height: 70px; /* Tamaño aumentado */
+            object-fit: contain;
+            filter: none; /* Mantener colores originales */
         }
-        .client-logo-placeholder:hover { opacity: 1; filter: grayscale(0%) brightness(1); transform: scale(1.05); }
+        .client-logo-placeholder:hover { 
+            transform: scale(1.1);
+            /* Filtro CSS para convertir cualquier color en #00ff9f brillante */
+            filter: brightness(0) saturate(100%) invert(83%) sepia(35%) saturate(1087%) hue-rotate(102deg) brightness(101%) contrast(102%) drop-shadow(0 0 12px rgba(0, 255, 159, 0.6));
+        }
         
         /* Animaciones Orbitales */
         @keyframes orbit { from { transform: rotate(0deg) scale(1.1) translateX(10px); } to { transform: rotate(360deg) scale(1.1) translateX(10px); } }

@@ -1,18 +1,122 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <title>Cookies | quickAI.io</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Cookies | quickAI.io</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>body { background: #020202; color: #a1a1aa; font-family: 'Inter', sans-serif; }</style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            dark: '#020202', 
+                            card: '#080809', 
+                            accent: '#00ff9f', 
+                            accentTranslucent: 'rgba(0, 255, 159, 0.1)',
+                            border: 'rgba(255, 255, 255, 0.04)'
+                        }
+                    },
+                    backgroundImage: {
+                        'glow-accent': 'radial-gradient(circle at 50% 0%, rgba(0, 255, 159, 0.05), transparent 60%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #020202; 
+            color: #e4e4e7; 
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .circuit-bg {
+            position: fixed; inset: 0; opacity: 0.01; pointer-events: none; z-index: 1;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .glass-nav {
+            background: rgba(2, 2, 2, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .legal-section {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+    </style>
 </head>
-<body class="py-40 px-6">
-    <div class="max-w-2xl mx-auto text-center">
-        <div class="w-1.5 h-1.5 rounded-full bg-[#00ff9f] mx-auto mb-6 shadow-[0_0_10px_#00ff9f]"></div>
-        <h1 class="text-3xl font-black text-white tracking-tighter mb-10">Uso de Cookies Técnicas</h1>
-        <p class="text-sm font-light leading-relaxed mb-6">Nuestra web utiliza cookies únicamente para mantener la persistencia de los chats de IA y la configuración de idioma.</p>
-        <p class="text-sm font-light leading-relaxed mb-12">Al continuar navegando en quickAI.io, aceptas que instalemos estos pequeños fragmentos de código para optimizar el rendimiento de los motores autónomos.</p>
-        <a href="index.html" class="text-brand-accent font-black text-[10px] uppercase tracking-[0.3em] border border-white/5 px-8 py-4 rounded-full hover:bg-white/5 transition-all">Configuración Aceptada</a>
-    </div>
+<body class="antialiased font-sans">
+
+    <div class="circuit-bg"></div>
+    <div class="fixed inset-0 bg-glow-accent pointer-events-none z-0"></div>
+
+    <nav class="glass-nav fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center relative z-10 group">
+                <span class="font-bold text-xl tracking-tighter text-white">quickAI<span class="text-brand-accentTranslucent group-hover:text-brand-accent transition-colors">.io</span></span>
+            </a>
+            <a href="index.html" class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest hover:text-brand-accent transition-colors">Volver</a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-40 pb-32 px-6 max-w-4xl mx-auto">
+        
+        <header class="mb-20">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-brand-card mb-10 shadow-lg border border-white/5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f]"></span>
+                <span class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold">Gestión de Trazabilidad</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-[0.92] text-white">
+                Arquitectura <br> 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-brand-accent">de Cookies.</span>
+            </h1>
+            <p class="text-zinc-500 text-lg font-light max-w-2xl">
+                Nuestros motores analíticos utilizan fragmentos de datos para optimizar la interacción entre el usuario y la infraestructura de IA.
+            </p>
+        </header>
+
+        <div class="space-y-4">
+            <div class="legal-section">
+                <h3 class="text-white font-black uppercase text-[11px] tracking-[0.2em] mb-4">01. Cookies Técnicas</h3>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed">
+                    Indispensables para la persistencia de las sesiones de diálogo y el correcto funcionamiento de los agentes de voz e interfaces conversacionales. Sin estas cookies, la infraestructura lógica no puede mantener el contexto de la consulta.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <h3 class="text-white font-black uppercase text-[11px] tracking-[0.2em] mb-4">02. Cookies Analíticas</h3>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed">
+                    Recopilan datos anónimos sobre el rendimiento de los embudos de conversión. Nos permiten monitorizar la eficiencia de los motores de IA y ajustar la latencia de respuesta para mejorar la operativa industrial de la web.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-20 flex flex-col md:flex-row items-center gap-10">
+            <a href="index.html" class="group flex items-center h-12 cursor-pointer w-full sm:w-auto">
+                <div class="flex flex-col items-center justify-start h-full mr-4">
+                    <div class="w-2.5 h-2.5 rounded-full bg-brand-accent shadow-[0_0_10px_#00ff9f]"></div>
+                    <div class="w-[2px] h-full bg-brand-accent"></div>
+                </div>
+                <div class="flex flex-col justify-end w-56 text-left border-b-2 border-brand-accent">
+                    <span class="text-brand-accent font-bold uppercase tracking-widest text-[10px] mb-2 group-hover:text-white transition-colors">Confirmar Configuración</span>
+                </div>
+            </a>
+            <p class="text-[9px] text-zinc-600 font-bold uppercase tracking-widest max-w-[250px]">La navegación continuada implica la aceptación técnica de estos módulos.</p>
+        </div>
+
+    </main>
+
 </body>
 </html>

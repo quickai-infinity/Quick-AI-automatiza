@@ -1,33 +1,136 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <title>Términos | quickAI.io</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones | quickAI.io</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            dark: '#020202', 
+                            card: '#080809', 
+                            accent: '#00ff9f', 
+                            accentTranslucent: 'rgba(0, 255, 159, 0.1)',
+                            border: 'rgba(255, 255, 255, 0.04)'
+                        }
+                    },
+                    backgroundImage: {
+                        'glow-accent': 'radial-gradient(circle at 50% 0%, rgba(0, 255, 159, 0.05), transparent 60%)',
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        body { background: #010101; color: #71717a; font-family: 'Inter', sans-serif; }
-        .accent-glow { text-shadow: 0 0 15px rgba(0, 255, 159, 0.3); }
+        body { 
+            background-color: #020202; 
+            color: #e4e4e7; 
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .circuit-bg {
+            position: fixed; inset: 0; opacity: 0.01; pointer-events: none; z-index: 1;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .glass-nav {
+            background: rgba(2, 2, 2, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .glass-panel {
+            background: rgba(8, 8, 9, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--brand-border);
+        }
+
+        .legal-section {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
     </style>
 </head>
-<body class="antialiased px-6 py-32">
-    <div class="max-w-3xl mx-auto">
-        <span class="text-brand-accent text-xs font-black uppercase tracking-widest block mb-4">Acuerdo de Servicio</span>
-        <h1 class="text-5xl font-extrabold text-white tracking-tighter mb-16 leading-none">Condiciones <br> Industriales.</h1>
+<body class="antialiased font-sans">
+
+    <div class="circuit-bg"></div>
+    <div class="fixed inset-0 bg-glow-accent pointer-events-none z-0"></div>
+
+    <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center relative z-10 group">
+                <span class="font-bold text-xl tracking-tighter text-white">quickAI<span class="text-brand-accentTranslucent group-hover:text-brand-accent transition-colors">.io</span></span>
+            </a>
+            <a href="index.html" class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest hover:text-brand-accent transition-colors">Volver al Dashboard</a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-40 pb-32 px-6 max-w-4xl mx-auto">
         
-        <div class="space-y-12">
-            <div>
-                <h3 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest">Responsabilidad de la IA</h3>
-                <p class="text-sm font-light leading-relaxed">El cliente entiende que la IA es una tecnología de soporte. quickAI.io no se responsabiliza por decisiones comerciales tomadas basadas en proyecciones algorítmicas.</p>
+        <header class="mb-20">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-brand-card mb-10 shadow-lg">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f]"></span>
+                <span class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold">Marco Regulatorio 2026</span>
             </div>
-            <div>
-                <h3 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest">Propiedad de Flujos</h3>
-                <p class="text-sm font-light leading-relaxed">Al finalizar la implementación, el cliente es dueño total de los flujos de n8n y configuraciones de agentes desarrollados específicamente para su infraestructura.</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-[0.92] text-white">
+                Condiciones <br> 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-brand-accent">Industriales.</span>
+            </h1>
+            <p class="text-zinc-500 text-lg font-light max-w-2xl">
+                Este documento rige la arquitectura, implementación y mantenimiento de los sistemas de automatización desplegados por nuestra ingeniería.
+            </p>
+        </header>
+
+        <div class="space-y-4">
+            <div class="legal-section">
+                <h3 class="text-white font-black uppercase text-[11px] tracking-[0.2em] mb-4">01. Responsabilidad Algorítmica</h3>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed">
+                    Nuestras soluciones de IA operan bajo modelos probabilísticos de alta precisión. Sin embargo, el cliente reconoce que el sistema puede generar respuestas inesperadas. quickAI.io no se responsabiliza por daños directos o indirectos derivados de alucinaciones en los modelos de lenguaje o fallos en servicios externos de terceros.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <h3 class="text-white font-black uppercase text-[11px] tracking-[0.2em] mb-4">02. Propiedad de la Infraestructura</h3>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed">
+                    Toda la arquitectura lógica, flujos de datos y configuraciones de agentes desarrollados específicamente para el cliente pasan a ser propiedad exclusiva del mismo tras la liquidación total del proyecto. quickAI.io conserva la propiedad sobre los métodos de orquestación y módulos propietarios pre-existentes utilizados para la construcción de dicha infraestructura.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <h3 class="text-white font-black uppercase text-[11px] tracking-[0.2em] mb-4">03. Garantía Operativa</h3>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed">
+                    Ofrecemos soporte técnico reactivo 24/7 sobre fallos críticos en la infraestructura desplegada. La garantía no cubre modificaciones realizadas por personal ajeno a quickAI.io que comprometan la integridad de los sistemas de comunicación o bases de datos conectadas.
+                </p>
             </div>
         </div>
 
-        <div class="mt-20">
-            <a href="index.html" class="inline-block border-b-2 border-brand-accent pb-1 text-white font-bold text-xs uppercase tracking-widest">Entendido</a>
+        <div class="mt-20 flex flex-col md:flex-row items-center gap-10">
+            <a href="index.html" class="group flex items-center h-12 cursor-pointer w-full sm:w-auto">
+                <div class="flex flex-col items-center justify-start h-full mr-4">
+                    <div class="w-2.5 h-2.5 rounded-full bg-brand-accent shadow-[0_0_10px_#00ff9f]"></div>
+                    <div class="w-[2px] h-full bg-brand-accent"></div>
+                </div>
+                <div class="flex flex-col justify-end w-48 text-left border-b-2 border-brand-accent">
+                    <span class="text-brand-accent font-bold uppercase tracking-widest text-[10px] mb-2 group-hover:text-white transition-colors">Aceptar Condiciones</span>
+                </div>
+            </a>
+            <p class="text-[9px] text-zinc-600 font-bold uppercase tracking-widest max-w-[200px]">Al navegar en quickAI.io aceptas este marco legal industrial.</p>
         </div>
-    </div>
+
+    </main>
+
 </body>
 </html>

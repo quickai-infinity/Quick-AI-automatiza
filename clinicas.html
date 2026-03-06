@@ -41,6 +41,16 @@
     <div class="fixed inset-0 bg-glow-accent pointer-events-none z-0"></div>
 
     <nav class="glass-nav fixed w-full top-0 z-50">
+
+        <div class="flex items-center gap-4">
+    <a href="index.html" class="md:hidden text-zinc-400 hover:text-brand-accent p-2 -ml-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </a>
+    
+    <a href="index.html" class="font-bold text-xl tracking-tighter text-white">
+        quickAI<span class="text-brand-accent">.io</span>
+    </a>
+</div>
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <a href="index.html" class="flex items-center group">
                 <span class="font-bold text-xl tracking-tighter text-white">quickAI<span class="text-brand-accent">.io</span></span>
@@ -109,6 +119,18 @@
             document.body.classList.add('is-scrolling');
             clearTimeout(scrollTimer);
             scrollTimer = setTimeout(() => { document.body.classList.remove('is-scrolling'); }, 150); 
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            if(btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
         });
     </script>
 </body>

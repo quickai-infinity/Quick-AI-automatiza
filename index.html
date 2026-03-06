@@ -22,10 +22,10 @@
                             dark: '#020202', 
                             card: '#080809', 
                             cardHover: '#0b0b0d',
-                            border: 'rgba(255, 255, 255, 0.01)', /* Casi invisible */
+                            border: 'rgba(255, 255, 255, 0.01)',
                             borderHover: 'rgba(0, 255, 159, 0.05)',
                             accent: '#00ff9f', 
-                            accentTranslucent: 'rgba(0, 255, 159, 0.1)', /* Muy leve */
+                            accentTranslucent: 'rgba(0, 255, 159, 0.1)',
                             accentBlue: '#3b82f6' 
                         }
                     },
@@ -41,10 +41,9 @@
     <style>
         body { background-color: #020202; color: #e4e4e7; overflow-x: hidden; }
         
-        /* Fondo de circuitos tenues */
         .circuit-bg {
             position: fixed; inset: 0; opacity: 0.01; pointer-events: none; z-index: 1;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9v-9h-9v-1h9V0h1v97h-1v1h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H16v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-8H0v1h15v8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-8H0v1h15v8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
         .glass-nav {
@@ -57,6 +56,32 @@
         
         .service-card:hover { transform: translateY(-5px); border-color: rgba(0, 255, 159, 0.15); box-shadow: 0 20px 40px -15px rgba(0, 255, 159, 0.1); }
         
+        .service-card * {
+            position: relative;
+            z-index: 10;
+        }
+
+        .dot-pattern {
+            position: absolute !important; inset: 0; opacity: 0.15; pointer-events: none; z-index: 1 !important;
+            background-image: radial-gradient(rgba(0, 255, 159, 0.4) 1px, transparent 1px);
+            background-size: 10px 10px;
+            mask-image: radial-gradient(ellipse at center, black 15%, transparent 75%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 15%, transparent 75%);
+        }
+
+        .light-sweep {
+            position: absolute !important; top: 0; left: -150%; width: 100%; height: 100%; z-index: 2 !important;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 159, 0.15), transparent);
+            transform: skewX(-20deg);
+            transition: none;
+            pointer-events: none;
+        }
+
+        .service-card:hover .light-sweep {
+            left: 150%;
+            transition: left 0.8s ease-in-out;
+        }
+
         .client-logo-placeholder { 
             opacity: 0.65; transition: all 0.3s; filter: grayscale(100%) brightness(1.5); height: 40px; object-fit: contain;
         }
@@ -73,11 +98,17 @@
 
         /* Estilos para las tarjetas de esquina fijos */
         .corner-card {
-            position: fixed; width: 220px; background: #080809; border: 1px solid rgba(0, 255, 159, 0.1); padding: 16px; border-radius: 4px; z-index: 40; transition: all 0.3s;
+            position: fixed; width: 220px; background: #080809; border: 1px solid rgba(0, 255, 159, 0.1); padding: 16px; border-radius: 4px; z-index: 40; transition: all 0.3s ease-in-out;
         }
         .corner-card:hover { border-color: rgba(0, 255, 159, 0.3); background: #0c0c0e; }
         .corner-circuit {
             position: absolute; width: 30px; h: 30px; border: 2px solid rgba(0, 255, 159, 0.2);
+        }
+
+        /* Ocultar elementos al hacer scroll */
+        body.is-scrolling .fade-on-scroll {
+            opacity: 0 !important;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -86,28 +117,30 @@
     <div class="circuit-bg"></div>
     <div class="fixed inset-0 bg-glow-accent pointer-events-none z-0"></div>
 
-    <div class="corner-card top-24 left-6 group">
+    <div class="corner-card top-24 left-6 group fade-on-scroll">
         <div class="corner-circuit -top-1 -left-1 border-r-0 border-b-0"></div>
         <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-2 group-hover:text-white transition-colors">Adaptación Algorítmica</h4>
-        <p class="text-[10px] text-zinc-500 font-light leading-relaxed">No forzamos tu operativa. Diseñamos el modelo IA exacto para tu flujo manual existente.</p>
+        <p class="text-[10px] text-zinc-500 font-light leading-relaxed mb-2">No forzamos tu operativa.</p>
+        <p class="text-[10px] text-zinc-500 font-light leading-relaxed">Diseñamos el modelo IA exacto para tu flujo manual existente.</p>
     </div>
 
-    <div class="corner-card top-24 right-6 group text-right">
+    <div class="corner-card top-24 right-6 group text-right fade-on-scroll">
         <div class="corner-circuit -top-1 -right-1 border-l-0 border-b-0"></div>
         <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-2 group-hover:text-white transition-colors">Integración Total</h4>
         <p class="text-[10px] text-zinc-500 font-light leading-relaxed group-hover:text-zinc-400">Conectamos tu CRM, base de datos y canales de comunicación sin fricción.</p>
     </div>
 
-    <div class="corner-card bottom-20 left-6 group">
+    <div class="corner-card bottom-20 left-6 group fade-on-scroll">
         <div class="corner-circuit -bottom-1 -left-1 border-r-0 border-t-0"></div>
         <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-2 group-hover:text-white transition-colors">Soporte Omnipresente</h4>
-        <p class="text-[10px] text-zinc-500 font-light leading-relaxed">Nuestra ingeniería opera 24/7. Si un agente detecta anomalía, nuestro equipo humano interviene.</p>
+        <p class="text-[10px] text-zinc-500 font-light leading-relaxed mb-2">Nuestra ingeniería opera 24/7.</p>
+        <p class="text-[10px] text-zinc-500 font-light leading-relaxed">Si un agente detecta anomalía, nuestro equipo humano interviene.</p>
     </div>
 
-    <div class="corner-card bottom-20 right-6 group text-right">
+    <div class="corner-card bottom-20 right-6 group text-right fade-on-scroll">
         <div class="corner-circuit -bottom-1 -right-1 border-l-0 border-t-0"></div>
         <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-2 group-hover:text-white transition-colors">Desarrollo Exclusivo</h4>
-        <p class="text-[10px] text-zinc-500 font-light leading-relaxed">Si tu proceso es único, construimos el flujo de datos y el agente específico para automatizarlo.</p>
+        <p class="text-[10px] text-zinc-500 font-light leading-relaxed mb-2">Si tu proceso es único, construimos el flujo de datos y el agente específico para automatizarlo.</p>
     </div>
 
     <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
@@ -199,8 +232,11 @@
                     industrializados.
                 </h1>
                 
+                <p class="text-zinc-400 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-4 mx-auto md:mx-0">
+                    Diseñamos e implementamos infraestructura de IA de alto rendimiento en LATAM, Europa, USA y África.
+                </p>
                 <p class="text-zinc-400 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-8 mx-auto md:mx-0">
-                    Diseñamos e implementamos infraestructura de IA de alto rendimiento en LATAM, Europa, USA y África. Desde agentes de voz que pre-califican prospectos, hasta embudos omnicanal que operan 24/7 sin intervención humana.
+                    Desde agentes de voz que pre-califican prospectos, hasta embudos omnicanal que operan 24/7 sin intervención humana.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-10 justify-center md:justify-start items-center mt-12 mb-10">
@@ -243,17 +279,17 @@
                 </div>
             </div>
             
-            <div class="w-full md:w-2/5 relative flex justify-center items-center mt-10 md:mt-0 relative overflow-visible">
-                <div class="absolute w-[120%] h-[120%] opacity-10 orbit-3">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10,50 A40,40 0 1,0 90,50 A40,40 0 1,0 10,50 M30,50 A20,20 0 1,0 70,50 A20,20 0 1,0 30,50' stroke='%2300ff9f' stroke-width='0.5' fill='none' stroke-dasharray='3 3'/%3E%3Ccircle cx='50' cy='10' r='1.5' fill='%2300ff9f'/%3E%3Ccircle cx='50' cy='90' r='1.5' fill='%2300ff9f'/%3E%3Cpath d='M10,50 L30,50 M70,50 L90,50' stroke='%2300ff9f' stroke-width='0.5'/%3E%3C/svg%3E" alt="Circuito base">
+            <div class="w-full md:w-2/5 relative flex justify-center items-center mt-20 md:mt-0 min-h-[300px] md:min-h-0 overflow-visible">
+                <div class="absolute w-[300px] h-[300px] md:w-[120%] md:h-[120%] opacity-10 orbit-3">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10,50 A40,40 0 1,0 90,50 A40,40 0 1,0 10,50 M30,50 A20,20 0 1,0 70,50 A20,20 0 1,0 30,50' stroke='%2300ff9f' stroke-width='0.5' fill='none' stroke-dasharray='3 3'/%3E%3Ccircle cx='50' cy='10' r='1.5' fill='%2300ff9f'/%3E%3Ccircle cx='50' cy='90' r='1.5' fill='%2300ff9f'/%3E%3Cpath d='M10,50 L30,50 M70,50 L90,50' stroke='%2300ff9f' stroke-width='0.5'/%3E%3C/svg%3E" alt="Circuito base" class="w-full h-full object-contain">
                 </div>
                 
-                <div class="absolute w-[95%] h-[95%] opacity-15 orbit-2">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='35' stroke='%2300ff9f' stroke-width='0.8' fill='none' stroke-dasharray='10 5'/%3E%3Cpath d='M50,15 L50,85 M15,50 L85,50' stroke='%2300ff9f' stroke-width='0.5' opacity='0.3'/%3E%3C/svg%3E" alt="Circuito intermedio">
+                <div class="absolute w-[240px] h-[240px] md:w-[95%] md:h-[95%] opacity-15 orbit-2">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='35' stroke='%2300ff9f' stroke-width='0.8' fill='none' stroke-dasharray='10 5'/%3E%3Cpath d='M50,15 L50,85 M15,50 L85,50' stroke='%2300ff9f' stroke-width='0.5' opacity='0.3'/%3E%3C/svg%3E" alt="Circuito intermedio" class="w-full h-full object-contain">
                 </div>
                 
-                <div class="absolute w-[70%] h-[70%] opacity-20 orbit-1">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='25' stroke='%2300ff9f' stroke-width='1.2' fill='none'/%3E%3Ccircle cx='75' cy='50' r='2' fill='%2300ff9f'/%3E%3C/svg%3E" alt="Circuito interno">
+                <div class="absolute w-[180px] h-[180px] md:w-[70%] md:h-[70%] opacity-20 orbit-1">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='25' stroke='%2300ff9f' stroke-width='1.2' fill='none'/%3E%3Ccircle cx='75' cy='50' r='2' fill='%2300ff9f'/%3E%3C/svg%3E" alt="Circuito interno" class="w-full h-full object-contain">
                 </div>
 
                 <div class="text-center z-10 relative">
@@ -267,7 +303,7 @@
         <section id="casos" class="py-16 border-y border-brand-border bg-[#010101] relative">
             <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent"></div>
             <div class="max-w-7xl mx-auto px-6 text-center">
-                <p class="text-[11px] font-bold text-zinc-600 uppercase tracking-widest mb-12">Confianza y Resultados en Industrias Clave</p>
+                <p class="text-[11px] font-bold text-zinc-600 uppercase tracking-widest mb-12">Confianza y resultados en industrias y pymes</p>
                 <div class="flex flex-wrap justify-center gap-16 md:gap-24 items-center">
                     <img src="logos/logo-ajsolutions.png" alt="AJ Solutions Bienes Raíces" class="client-logo-placeholder">
                     <img src="logos/logo-clinica-2.png" alt="Clínica Dental" class="client-logo-placeholder">
@@ -286,6 +322,8 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 
                 <div class="service-card rounded-xl p-10 flex flex-col group border border-brand-border hover:border-brand-borderHover transition-all">
+                    <div class="dot-pattern"></div>
+                    <div class="light-sweep"></div>
                     <div class="relative z-10 flex flex-col h-full">
                         <div class="w-12 h-12 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center mb-10 group-hover:border-brand-accent/20 transition-colors shadow-inner relative">
                             <div class="absolute top-0 left-0 w-3 h-3 border-l-2 border-t-2 border-brand-accentTranslucent group-hover:border-brand-accent transition-colors"></div>
@@ -294,13 +332,18 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-4 tracking-tight">Agentes de Voz IA</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors mb-2">
+                            Teleoperadores autónomos entrenados en acento local.
+                        </p>
                         <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors">
-                            Teleoperadores autónomos entrenados en acento local. Pre-califican leads y agendan citas médicas 24/7 sin tiempos de espera.
+                            Pre-califican leads y agendan citas médicas 24/7 sin tiempos de espera.
                         </p>
                     </div>
                 </div>
 
                 <div class="service-card rounded-xl p-10 flex flex-col group border border-brand-border hover:border-brand-borderHover transition-all">
+                    <div class="dot-pattern"></div>
+                    <div class="light-sweep"></div>
                     <div class="relative z-10 flex flex-col h-full">
                         <div class="w-12 h-12 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center mb-10 group-hover:border-green-500/20 transition-colors shadow-inner relative">
                              <div class="absolute top-0 left-0 w-3 h-3 border-l-2 border-t-2 border-brand-accentTranslucent group-hover:border-green-500 transition-colors"></div>
@@ -309,13 +352,18 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-4 tracking-tight">Atención WhatsApp</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors mb-2">
+                            Embudos de venta y atención automatizada vía WhatsApp API.
+                        </p>
                         <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors">
-                            Embudos de venta y atención automatizada vía WhatsApp API. Captura de datos y cierre integrado a tu CRM.
+                            Captura de datos y cierre integrado a tu CRM.
                         </p>
                     </div>
                 </div>
 
                 <div class="service-card rounded-xl p-10 flex flex-col group border border-brand-border hover:border-brand-borderHover transition-all">
+                    <div class="dot-pattern"></div>
+                    <div class="light-sweep"></div>
                     <div class="relative z-10 flex flex-col h-full">
                         <div class="w-12 h-12 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center mb-10 group-hover:border-brand-accentBlue/20 transition-colors shadow-inner relative">
                              <div class="absolute top-0 left-0 w-3 h-3 border-l-2 border-t-2 border-brand-accentTranslucent group-hover:border-brand-accentBlue transition-colors"></div>
@@ -324,8 +372,11 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-4 tracking-tight">Motores de Procesos</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors mb-2">
+                            Conectamos tus sistemas (CRM, Web, Email).
+                        </p>
                         <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors">
-                            Conectamos tus sistemas (CRM, Web, Email). Extracción de leads y orquestación de flujos automática.
+                            Extracción de leads y orquestación de flujos automática.
                         </p>
                     </div>
                 </div>
@@ -338,7 +389,8 @@
             <div class="absolute inset-0 bg-glow-accent opacity-10"></div>
             <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
                 <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tighter leading-[0.95]">Tu operación <br> merece ser autónoma.</h2>
-                <p class="text-zinc-400 text-lg mb-14 max-w-2xl mx-auto font-light">Agenda una sesión de descubrimiento de 20 minutos. Analizaremos tu flujo actual de clientes y te diremos exactamente dónde la IA industrial puede multiplicar tu rentabilidad.</p>
+                <p class="text-zinc-400 text-lg mb-4 max-w-2xl mx-auto font-light">Agenda una sesión de descubrimiento de 20 minutos.</p>
+                <p class="text-zinc-400 text-lg mb-14 max-w-2xl mx-auto font-light">Analizaremos tu flujo actual de clientes y te diremos exactamente dónde la IA industrial puede multiplicar tu rentabilidad.</p>
                 
                 <a href="mailto:hello@quickai.agency" class="group flex items-center justify-center gap-2 mx-auto w-max cursor-pointer">
                     <div class="w-2.5 h-2.5 rounded-full border-2 border-brand-accent group-hover:bg-brand-accent group-hover:scale-125 transition-all duration-300"></div>
@@ -378,6 +430,16 @@
             mobileSolucionesMenu.classList.toggle('hidden');
             mobileSolucionesMenu.classList.toggle('flex');
             mobileSolucionesIcon.classList.toggle('rotate-180');
+        });
+
+        // Lógica para detectar scroll y ocultar elementos
+        let scrollTimer;
+        window.addEventListener('scroll', () => {
+            document.body.classList.add('is-scrolling');
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(() => {
+                document.body.classList.remove('is-scrolling');
+            }, 150); // Tiempo de espera al dejar de hacer scroll
         });
     </script>
 

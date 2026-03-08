@@ -37,8 +37,9 @@
             }
         }
     </script>
-
+    
     <style>
+        
         html, body { 
             background-color: #020202; 
             color: #e4e4e7; 
@@ -49,7 +50,7 @@
         
         .circuit-bg {
             position: fixed; inset: 0; opacity: 0.01; pointer-events: none; z-index: 1;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0z'/%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0z'/%3E%3C/g%3E%3C/svg%3E");
         }
 
         .glass-nav {
@@ -101,6 +102,41 @@
         body.is-scrolling .fade-on-scroll {
             opacity: 0 !important;
             pointer-events: none;
+        }
+
+        /* --- NUEVAS ANIMACIONES (Hero y WhatsApp) --- */
+        .text-snake-skin {
+            background: linear-gradient(270deg, #3b82f6, #00ff9f, #3b82f6, #00ff9f);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: snakeSkin 6s ease-in-out infinite;
+        }
+
+        @keyframes snakeSkin {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .fade-in-delayed {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInReveal 2s ease-out forwards 1s;
+        }
+
+        @keyframes fadeInReveal {
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        @keyframes heartbeat-smooth {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); transform: scale(1); }
+            30% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); transform: scale(1.05); }
+            50% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); }
         }
     </style>
 </head>
@@ -229,43 +265,43 @@
         </div>
     </nav>
 
-    <main class="relative z-10 pt-5">
-        <section class="py-36 px-6 max-w-7xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center gap-16 relative">
-            <div class="w-full md:w-3/5 relative z-10">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-brand-card mb-10 shadow-lg">
+    <main class="relative z-10">
+        
+        <section class="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden bg-brand-dark">
+            
+            <canvas id="neural-network" class="absolute inset-0 z-0"></canvas>
+
+            <div class="relative z-10 text-center px-6 max-w-4xl mx-auto fade-in-delayed pointer-events-auto mt-10">
+                
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#080809]/80 backdrop-blur-sm mb-6 shadow-lg border border-white/5 mx-auto">
                     <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse shadow-[0_0_8px_#00ff9f]"></span>
                     <span class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold">Ingeniería Operativa B2B/B2C</span>
                 </div>
                 
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-[0.92] text-white">
-                    Motores de IA <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-text">autónomos</span> <br>
-                    industrializados.
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 text-snake-skin drop-shadow-lg leading-tight">
+                    Motores de IA Autónomos
                 </h1>
                 
-                <p class="text-zinc-400 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-4 mx-auto md:mx-0">
-                    Diseñamos e implementamos infraestructura de IA de alto rendimiento en LATAM, Europa, USA y África.
-                </p>
-                <p class="text-zinc-400 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-8 mx-auto md:mx-0">
-                    Desde agentes de voz que pre-califican prospectos, hasta embudos omnicanal que operan 24/7 sin intervención humana.
+                <p class="text-zinc-400 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto mb-12">
+                    Infraestructura inteligente que evoluciona y se conecta con tu ecosistema operativo.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-10 justify-center md:justify-start items-center mt-12 mb-10 relative z-50">
+                <div class="flex flex-col sm:flex-row gap-10 justify-center items-center relative z-50">
                     
                     <a href="https://wa.me/34677304620?text=Hola%20equipo%20de%20QuickAI,%20quiero%20agendar%20una%20auditor%C3%ADa." target="_blank" rel="noopener noreferrer" class="group flex items-center h-12 cursor-pointer w-full sm:w-auto">
                         <div class="flex flex-col items-center justify-start h-full mr-4">
                             <div class="w-2.5 h-2.5 rounded-full bg-brand-accent shadow-[0_0_10px_#00ff9f] group-hover:scale-150 transition-transform"></div>
                             <div class="w-[2px] h-full bg-brand-accent shadow-[0_0_10px_#00ff9f]"></div>
                         </div>
-                        <div class="flex flex-col justify-end w-48 text-left border-b-2 border-brand-accent shadow-[0_4px_10px_rgba(0,255,159,0.1)]">
-                            <span class="text-brand-accent font-bold uppercase tracking-widest text-xs mb-2 group-hover:text-white transition-colors">Auditoría Gratuita</span>
+                        <div class="flex flex-col justify-end w-48 text-left border-b-2 border-brand-accent shadow-[0_4px_10px_rgba(0,255,159,0.1)] pb-2">
+                            <span class="text-brand-accent font-bold uppercase tracking-widest text-xs group-hover:text-white transition-colors">Auditoría Gratuita</span>
                         </div>
                     </a>
 
                     <div class="relative w-full sm:w-auto opacity-50 hover:opacity-100 transition-opacity">
                         <div class="flex items-center h-12 text-right cursor-pointer" id="hero-soluciones-btn">
-                            <div class="flex flex-col justify-end w-48 border-b-2 border-zinc-400 hover:border-brand-accent transition-colors">
-                                <span class="text-white font-bold uppercase tracking-widest text-xs mb-2 hover:text-brand-accent transition-colors flex justify-end items-center gap-1">
+                            <div class="flex flex-col justify-end w-48 border-b-2 border-zinc-400 hover:border-brand-accent transition-colors pb-2">
+                                <span class="text-white font-bold uppercase tracking-widest text-xs hover:text-brand-accent transition-colors flex justify-end items-center gap-1">
                                     Ver Soluciones
                                     <svg class="w-3 h-3 transition-transform" id="hero-soluciones-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                                 </span>
@@ -276,7 +312,7 @@
                             </div>
                         </div>
                         
-                        <div id="hero-soluciones-menu" class="absolute top-16 right-0 w-[200px] sm:w-max bg-brand-card border border-brand-border rounded-md shadow-2xl opacity-0 invisible transition-all duration-300 flex flex-col py-2 z-[999]">
+                        <div id="hero-soluciones-menu" class="absolute top-16 right-0 w-[200px] sm:w-max bg-brand-card border border-brand-border rounded-md shadow-2xl opacity-0 invisible transition-all duration-300 flex flex-col py-2 z-[999] text-left">
                             <a href="clinicas.html" class="px-5 py-2 text-[9px] hover:bg-[#111] hover:text-brand-accent text-zinc-500 transition-colors uppercase tracking-wider font-medium">Clínicas</a>
                             <a href="consultorios.html" class="px-5 py-2 text-[9px] hover:bg-[#111] hover:text-brand-accent text-zinc-500 transition-colors uppercase tracking-wider font-medium">Consultorios</a>
                             <a href="real-estate.html" class="px-5 py-2 text-[9px] hover:bg-[#111] hover:text-brand-accent text-zinc-500 transition-colors uppercase tracking-wider font-medium">Real Estate</a>
@@ -287,72 +323,6 @@
                             <a href="motores-conversion.html" class="px-5 py-2 text-[9px] hover:bg-[#111] hover:text-brand-accent text-zinc-500 transition-colors uppercase tracking-wider font-medium border-t border-white/5 mt-1 pt-3">Motores-conversion</a>
                         </div>
                     </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-16 lg:hidden w-full text-left relative z-10">
-                    <div class="flex items-start gap-3 group glass-panel p-4 rounded-xl">
-                        <div class="flex flex-col items-center mt-1">
-                            <div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div>
-                            <div class="w-[1px] h-full min-h-[40px] bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Adaptación Algorítmica</h4>
-                            <p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">No forzamos tu operativa. Diseñamos el modelo IA exacto.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-3 group glass-panel p-4 rounded-xl">
-                        <div class="flex flex-col items-center mt-1">
-                            <div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div>
-                            <div class="w-[1px] h-full min-h-[40px] bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Integración Total</h4>
-                            <p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">Conectamos tu CRM, base de datos y canales sin fricción.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-3 group glass-panel p-4 rounded-xl">
-                        <div class="flex flex-col items-center mt-1">
-                            <div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div>
-                            <div class="w-[1px] h-full min-h-[40px] bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Soporte Omnipresente</h4>
-                            <p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">Ingeniería 24/7. Si un agente detecta anomalía, intervenimos.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-3 group glass-panel p-4 rounded-xl">
-                        <div class="flex flex-col items-center mt-1">
-                            <div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div>
-                            <div class="w-[1px] h-full min-h-[40px] bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Desarrollo Exclusivo</h4>
-                            <p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">Construimos el flujo de datos específico para automatizar tu proceso único.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="w-full md:w-2/5 relative flex justify-center items-center mt-20 md:mt-0 min-h-[300px] md:min-h-0 overflow-visible">
-                <div class="absolute w-[300px] h-[300px] md:w-[120%] md:h-[120%] opacity-10 orbit-3">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10,50 A40,40 0 1,0 90,50 A40,40 0 1,0 10,50 M30,50 A20,20 0 1,0 70,50 A20,20 0 1,0 30,50' stroke='%2300ff9f' stroke-width='0.5' fill='none' stroke-dasharray='3 3'/%3E%3Ccircle cx='50' cy='10' r='1.5' fill='%2300ff9f'/%3E%3Ccircle cx='50' cy='90' r='1.5' fill='%2300ff9f'/%3E%3Cpath d='M10,50 L30,50 M70,50 L90,50' stroke='%2300ff9f' stroke-width='0.5'/%3E%3C/svg%3E" alt="Circuito base" class="w-full h-full object-contain">
-                </div>
-                
-                <div class="absolute w-[240px] h-[240px] md:w-[95%] md:h-[95%] opacity-15 orbit-2">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='35' stroke='%2300ff9f' stroke-width='0.8' fill='none' stroke-dasharray='10 5'/%3E%3Cpath d='M50,15 L50,85 M15,50 L85,50' stroke='%2300ff9f' stroke-width='0.5' opacity='0.3'/%3E%3C/svg%3E" alt="Circuito intermedio" class="w-full h-full object-contain">
-                </div>
-                
-                <div class="absolute w-[180px] h-[180px] md:w-[70%] md:h-[70%] opacity-20 orbit-1">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='25' stroke='%2300ff9f' stroke-width='1.2' fill='none'/%3E%3Ccircle cx='75' cy='50' r='2' fill='%2300ff9f'/%3E%3C/svg%3E" alt="Circuito interno" class="w-full h-full object-contain">
-                </div>
-
-                <div class="text-center z-10 relative">
-                    <div class="absolute inset-0 bg-brand-accent blur-[50px] opacity-10"></div>
-                    <div class="text-7xl font-black tracking-tighter text-white relative">10X</div>
-                    <div class="text-[11px] font-bold text-zinc-500 uppercase tracking-widest relative mt-1">ROI Proyectado</div>
                 </div>
             </div>
         </section>
@@ -541,37 +511,14 @@
         </div>
     </footer>
 
-    <style>
-@keyframes heartbeat-smooth {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-        transform: scale(1);
-    }
-    30% {
-        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
-        transform: scale(1.05);
-    }
-    50% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-        transform: scale(1);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-        transform: scale(1);
-    }
-}
-</style>
-
-<div class="fixed bottom-6 right-6 z-[99] flex flex-col items-end gap-3">
-    
-    <a href="https://wa.me/524427166069?text=Hola%20equipo%20de%20QuickAI,%20quiero%20agendar%20una%20auditor%C3%ADa." target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-full transition-all duration-300 group" style="animation: heartbeat-smooth 2s infinite; animation-delay: 0.3s;">
-        <span class="text-xs font-bold tracking-wider opacity-80 group-hover:opacity-100">agente</span>
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-        </svg>
-    </a>
-
-</div>
+    <div class="fixed bottom-6 right-6 z-[99] flex flex-col items-end gap-3">
+        <a href="https://wa.me/524427166069?text=Hola%20equipo%20de%20QuickAI,%20quiero%20agendar%20una%20auditor%C3%ADa." target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-full transition-all duration-300 group" style="animation: heartbeat-smooth 2s infinite; animation-delay: 0.3s;">
+            <span class="text-xs font-bold tracking-wider opacity-80 group-hover:opacity-100">agente</span>
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+            </svg>
+        </a>
+    </div>
 
     <script>
         // Lógica Navbar Móvil
@@ -620,6 +567,93 @@
                 document.body.classList.remove('is-scrolling');
             }, 150); 
         });
+
+        // --- LÓGICA DE LA RED NEURONAL (CANVAS) ---
+        (function() {
+            const canvas = document.getElementById('neural-network');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            let width, height;
+            let particles = [];
+            
+            // Configuración
+            const config = {
+                particleCount: 80,
+                maxDistance: 150,
+                nodeColor: 'rgba(0, 255, 159, 0.5)', 
+                lineColor: 'rgba(59, 130, 246, 0.2)'  
+            };
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 1.5;
+                    this.vy = (Math.random() - 0.5) * 1.5;
+                    this.radius = Math.random() * 2 + 1;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = config.nodeColor;
+                    ctx.fill();
+                }
+            }
+
+            function initCanvas() {
+                resize();
+                window.addEventListener('resize', resize);
+                particles = [];
+                for (let i = 0; i < config.particleCount; i++) {
+                    particles.push(new Particle());
+                }
+                animateCanvas();
+            }
+
+            function animateCanvas() {
+                ctx.clearRect(0, 0, width, height);
+
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < config.maxDistance) {
+                            ctx.beginPath();
+                            const opacity = 1 - (distance / config.maxDistance);
+                            ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.5})`; 
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animateCanvas);
+            }
+
+            // Iniciar solo cuando todo el HTML haya cargado
+            window.addEventListener('load', initCanvas);
+        })();
     </script>
 </body>
 </html>

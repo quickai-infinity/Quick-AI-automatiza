@@ -39,105 +39,28 @@
     </script>
     
     <style>
-        
-        html, body { 
-            background-color: #020202; 
-            color: #e4e4e7; 
-            overflow-x: hidden !important; 
-            max-width: 100vw;
-            position: relative;
-        }
-        
-        .circuit-bg {
-            position: fixed; inset: 0; opacity: 0.01; pointer-events: none; z-index: 1;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0z'/%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .glass-nav {
-            background: rgba(2, 2, 2, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        .service-card {
-            background: #080809; border: 1px solid var(--brand-border); transition: all 0.5s; position: relative; overflow: hidden;
-        }
-        
+        html, body { background-color: #020202; color: #e4e4e7; overflow-x: hidden !important; max-width: 100vw; position: relative; }
+        .circuit-bg { position: fixed; inset: 0; opacity: 0.01; pointer-events: none; z-index: 1; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h1v84h9v-9h-9v-1h9V0h1v96h9v-9h-9v-1h9V0h1v96h9V0h1v97h-1v1h-9v4h-1v-4H16v4h-1v-4H0z'/%3E%3C/g%3E%3C/svg%3E"); }
+        .glass-nav { background: rgba(2, 2, 2, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.04); }
+        .service-card { background: #080809; border: 1px solid var(--brand-border); transition: all 0.5s; position: relative; overflow: hidden; }
         .service-card:hover { transform: translateY(-5px); border-color: rgba(0, 255, 159, 0.15); box-shadow: 0 20px 40px -15px rgba(0, 255, 159, 0.1); }
-        
         .service-card * { position: relative; z-index: 10; }
-
-        .dot-pattern {
-            position: absolute !important; inset: 0; opacity: 0.15; pointer-events: none; z-index: 1 !important;
-            background-image: radial-gradient(rgba(0, 255, 159, 0.4) 1px, transparent 1px);
-            background-size: 10px 10px;
-            mask-image: radial-gradient(ellipse at center, black 15%, transparent 75%);
-            -webkit-mask-image: radial-gradient(ellipse at center, black 15%, transparent 75%);
-        }
-
-        .light-sweep {
-            position: absolute !important; top: 0; left: -150%; width: 100%; height: 100%; z-index: 2 !important;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 159, 0.15), transparent);
-            transform: skewX(-20deg);
-            transition: none;
-            pointer-events: none;
-        }
-
+        .dot-pattern { position: absolute !important; inset: 0; opacity: 0.15; pointer-events: none; z-index: 1 !important; background-image: radial-gradient(rgba(0, 255, 159, 0.4) 1px, transparent 1px); background-size: 10px 10px; mask-image: radial-gradient(ellipse at center, black 15%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at center, black 15%, transparent 75%); }
+        .light-sweep { position: absolute !important; top: 0; left: -150%; width: 100%; height: 100%; z-index: 2 !important; background: linear-gradient(90deg, transparent, rgba(0, 255, 159, 0.15), transparent); transform: skewX(-20deg); transition: none; pointer-events: none; }
         .service-card:hover .light-sweep { left: 150%; transition: left 0.8s ease-in-out; }
-        
-        /* Animaciones Orbitales */
         @keyframes orbit { from { transform: rotate(0deg) scale(1.1) translateX(10px); } to { transform: rotate(360deg) scale(1.1) translateX(10px); } }
         @keyframes orbit-reverse { from { transform: rotate(360deg) scale(0.8) translateX(-15px); } to { transform: rotate(0deg) scale(0.8) translateX(-15px); } }
         @keyframes orbit-slow { from { transform: rotate(0deg) scale(1.3) translateX(20px); } to { transform: rotate(360deg) scale(1.3) translateX(20px); } }
-        
         .orbit-1 { animation: orbit 15s linear infinite; }
         .orbit-2 { animation: orbit-reverse 20s linear infinite; }
         .orbit-3 { animation: orbit-slow 30s linear infinite; }
-
-        /* Paneles de cristal */
-        .glass-panel {
-            background: rgba(8, 8, 9, 0.5);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        body.is-scrolling .fade-on-scroll {
-            opacity: 0 !important;
-            pointer-events: none;
-        }
-
-        /* --- NUEVAS ANIMACIONES (Hero y WhatsApp) --- */
-        .text-snake-skin {
-            background: linear-gradient(270deg, #3b82f6, #00ff9f, #3b82f6, #00ff9f);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: snakeSkin 6s ease-in-out infinite;
-        }
-
-        @keyframes snakeSkin {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .fade-in-delayed {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInReveal 2s ease-out forwards 1s;
-        }
-
-        @keyframes fadeInReveal {
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-
-        @keyframes heartbeat-smooth {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); transform: scale(1); }
-            30% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); transform: scale(1.05); }
-            50% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); }
-        }
+        .glass-panel { background: rgba(8, 8, 9, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        body.is-scrolling .fade-on-scroll { opacity: 0 !important; pointer-events: none; }
+        .text-snake-skin { background: linear-gradient(270deg, #3b82f6, #00ff9f, #3b82f6, #00ff9f); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: snakeSkin 6s ease-in-out infinite; }
+        @keyframes snakeSkin { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .fade-in-delayed { opacity: 0; transform: translateY(20px); animation: fadeInReveal 2s ease-out forwards 1s; }
+        @keyframes fadeInReveal { to { opacity: 1; transform: translateY(0); } }
+        @keyframes heartbeat-smooth { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); transform: scale(1); } 30% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); transform: scale(1.05); } 50% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); } }
     </style>
 </head>
 <body class="antialiased relative font-sans">
@@ -146,60 +69,30 @@
     <div class="fixed inset-0 bg-glow-accent pointer-events-none z-0"></div>
 
     <div class="hidden lg:flex fixed top-28 left-6 w-[260px] items-start gap-3 group fade-on-scroll z-40 glass-panel p-4 rounded-xl hover:bg-brand-card/80 transition-all duration-300">
-        <div class="flex flex-col items-center mt-1">
-            <div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div>
-            <div class="w-[1px] h-16 bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-        </div>
-        <div>
-            <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Adaptación Algorítmica</h4>
-            <p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">No forzamos tu operativa. Diseñamos el modelo IA exacto para tu flujo manual existente.</p>
-        </div>
+        <div class="flex flex-col items-center mt-1"><div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div><div class="w-[1px] h-16 bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div></div>
+        <div><h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Adaptación Algorítmica</h4><p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">No forzamos tu operativa. Diseñamos el modelo IA exacto para tu flujo manual existente.</p></div>
     </div>
-
     <div class="hidden lg:flex fixed top-28 right-6 w-[260px] items-start gap-3 group fade-on-scroll z-40 glass-panel p-4 rounded-xl hover:bg-brand-card/80 transition-all duration-300">
-        <div class="flex flex-col items-center mt-1">
-            <div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div>
-            <div class="w-[1px] h-12 bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-        </div>
-        <div>
-            <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Integración Total</h4>
-            <p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">Conectamos tu CRM, base de datos y canales de comunicación sin fricción.</p>
-        </div>
+        <div class="flex flex-col items-center mt-1"><div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div><div class="w-[1px] h-12 bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div></div>
+        <div><h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Integración Total</h4><p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">Conectamos tu CRM, base de datos y canales de comunicación sin fricción.</p></div>
     </div>
-
     <div class="hidden lg:flex fixed bottom-12 left-6 w-[260px] items-start gap-3 group fade-on-scroll z-40 glass-panel p-4 rounded-xl hover:bg-brand-card/80 transition-all duration-300">
-        <div class="flex flex-col items-center mt-1">
-            <div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div>
-            <div class="w-[1px] h-16 bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-        </div>
-        <div>
-            <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Soporte Omnipresente</h4>
-            <p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">Nuestra ingeniería opera 24/7. Si un agente detecta anomalía, nuestro equipo interviene.</p>
-        </div>
+        <div class="flex flex-col items-center mt-1"><div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div><div class="w-[1px] h-16 bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div></div>
+        <div><h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Soporte Omnipresente</h4><p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">Nuestra ingeniería opera 24/7. Si un agente detecta anomalía, nuestro equipo interviene.</p></div>
     </div>
-
     <div class="hidden lg:flex fixed bottom-12 right-6 w-[260px] items-start gap-3 group fade-on-scroll z-40 glass-panel p-4 rounded-xl hover:bg-brand-card/80 transition-all duration-300">
-        <div class="flex flex-col items-center mt-1">
-            <div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div>
-            <div class="w-[1px] h-16 bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-        </div>
-        <div>
-            <h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Desarrollo Exclusivo</h4>
-            <p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">Si tu proceso es único, construimos el flujo de datos y el agente específico para automatizarlo.</p>
-        </div>
+        <div class="flex flex-col items-center mt-1"><div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div><div class="w-[1px] h-16 bg-gradient-to-b from-brand-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div></div>
+        <div><h4 class="text-xs font-black text-brand-accent uppercase tracking-widest mb-1 group-hover:text-white transition-colors">Desarrollo Exclusivo</h4><p class="text-[10px] text-zinc-400 font-light leading-relaxed m-0">Si tu proceso es único, construimos el flujo de datos y el agente específico para automatizarlo.</p></div>
     </div>
 
     <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            
             <a href="index.html" class="flex items-center relative z-10 group">
                 <img src="logo-sin-fondo.png" alt="quickAI.io Logo" class="h-10 w-auto mr-2 transition-transform group-hover:scale-105" onerror="this.style.display='none'">
                 <span class="font-bold text-xl tracking-tighter text-white">quickAI<span class="text-brand-accentTranslucent group-hover:text-brand-accent transition-colors">.io</span></span>
             </a>
-            
             <div id="mobile-menu" class="hidden md:hidden bg-[#020202] border-b border-white/10 px-6 py-8 space-y-6 absolute w-full left-0 top-20 z-40">
                 <a href="index.html" class="block text-sm font-bold text-zinc-400 uppercase tracking-widest">Inicio</a>
-                
                 <div class="pt-4 border-t border-white/5 space-y-4">
                     <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-[0.2em]">Industrias</p>
                     <a href="clinicas.html" class="block text-sm text-zinc-400">Clínicas</a>
@@ -211,25 +104,16 @@
                     <a href="managers.html" class="block text-sm text-zinc-400">Managers</a>
                     <a href="motores-conversion.html" class="block text-sm text-zinc-400">Motores de Conversión</a>
                 </div>
-                
                 <div class="pt-4 border-t border-white/5 space-y-4">
                     <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-[0.2em]">A Medida</p>
-                    <a href="index.html#soluciones" class="block text-sm text-brand-accent font-bold flex justify-between items-center">
-                        Personalizado
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                    </a>
+                    <a href="index.html#soluciones" class="block text-sm text-brand-accent font-bold flex justify-between items-center">Personalizado<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg></a>
                 </div>
-
                 <a href="https://wa.me/34677304620?text=Hola%20equipo%20de%20QuickAI,%20quiero%20agendar%20una%20auditor%C3%ADa." target="_blank" rel="noopener noreferrer" class="block pt-4 text-[12px] font-bold text-zinc-400 uppercase tracking-widest border-t border-white/5">Contacto</a>
                 <a href="https://wa.me/34677304620?text=Hola%20equipo%20de%20QuickAI,%20quiero%20agendar%20una%20auditor%C3%ADa." target="_blank" rel="noopener noreferrer" class="block text-brand-accent font-bold text-xs uppercase tracking-widest w-full py-2">Agendar Demo ></a>
             </div>
-
             <div class="hidden md:flex gap-10 text-[11px] font-bold text-zinc-500 uppercase tracking-widest items-center">
                 <div class="relative group h-full py-8">
-                    <button class="flex items-center gap-1 hover:text-brand-accent transition-colors focus:outline-none">
-                        Soluciones
-                        <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                    </button>
+                    <button class="flex items-center gap-1 hover:text-brand-accent transition-colors focus:outline-none">Soluciones<svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
                     <div class="absolute top-16 left-0 w-64 bg-brand-card border border-brand-border rounded-md shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col py-2 z-50">
                         <div class="px-4 py-2 text-[9px] text-zinc-600 font-black tracking-widest border-b border-white/5">INDUSTRIAS</div>
                         <a href="clinicas.html" class="px-5 py-2.5 hover:bg-[#111] hover:text-brand-accent text-zinc-400 transition-colors">Clínicas</a>
@@ -241,77 +125,42 @@
                         <a href="managers.html" class="px-5 py-2.5 hover:bg-[#111] hover:text-brand-accent text-zinc-400 transition-colors border-b border-white/5">Managers</a>
                         <a href="motores-conversion.html" class="px-5 py-2.5 hover:bg-[#111] hover:text-brand-accent text-zinc-400 transition-colors border-b border-white/5">Motores de Conversión</a>
                         <div class="px-4 py-2 mt-1 text-[9px] text-zinc-600 font-black tracking-widest">A MEDIDA</div>
-                        <a href="#soluciones" class="px-5 py-2.5 hover:bg-[#111] text-brand-accent transition-colors font-bold flex justify-between items-center">
-                            Personalizado
-                            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                        </a>
+                        <a href="#soluciones" class="px-5 py-2.5 hover:bg-[#111] text-brand-accent transition-colors font-bold flex justify-between items-center">Personalizado<svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg></a>
                     </div>
                 </div>
-
                 <a href="https://wa.me/34677304620?text=Hola%20equipo%20de%20QuickAI,%20quiero%20agendar%20una%20auditor%C3%ADa." target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors">Contacto</a>
             </div>
-
             <div class="flex gap-4 items-center">
                 <a href="https://wa.me/34677304620?text=Hola%20equipo%20de%20QuickAI,%20quiero%20agendar%20una%20auditor%C3%ADa." target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-2 group opacity-80 hover:opacity-100 transition-opacity">
                     <div class="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#00ff9f] group-hover:scale-150 transition-transform"></div>
                     <div class="h-[1px] w-8 bg-brand-accent"></div>
                     <span class="text-brand-accent font-bold text-[10px] uppercase tracking-widest">Agendar Demo</span>
                 </a>
-                
-                <button id="mobile-menu-btn" class="md:hidden text-zinc-400 hover:text-brand-accent focus:outline-none p-2 ml-2 relative z-50">
-                    <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-zinc-400 hover:text-brand-accent focus:outline-none p-2 ml-2 relative z-50"><svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg></button>
             </div>
         </div>
     </nav>
 
     <main class="relative z-10">
-        
         <section class="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden bg-brand-dark">
-            
             <canvas id="neural-network" class="absolute inset-0 z-0"></canvas>
-
             <div class="relative z-10 text-center px-6 max-w-4xl mx-auto fade-in-delayed pointer-events-auto mt-10">
-                
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#080809]/80 backdrop-blur-sm mb-6 shadow-lg border border-white/5 mx-auto">
                     <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse shadow-[0_0_8px_#00ff9f]"></span>
                     <span class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold">Ingeniería Operativa B2B/B2C</span>
                 </div>
-                
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 text-snake-skin drop-shadow-lg leading-tight">
-                    Motores de IA Autónomos
-                </h1>
-                
-                <p class="text-zinc-400 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto mb-12">
-                    Infraestructura inteligente que evoluciona y se conecta con tu ecosistema operativo.
-                </p>
-
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 text-snake-skin drop-shadow-lg leading-tight">Motores de IA Autónomos</h1>
+                <p class="text-zinc-400 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto mb-12">Infraestructura inteligente que evoluciona y se conecta con tu ecosistema operativo.</p>
                 <div class="flex flex-col sm:flex-row gap-10 justify-center items-center relative z-50">
-                    
                     <a href="https://wa.me/34677304620?text=Hola%20equipo%20de%20QuickAI,%20quiero%20agendar%20una%20auditor%C3%ADa." target="_blank" rel="noopener noreferrer" class="group flex items-center h-12 cursor-pointer w-full sm:w-auto">
-                        <div class="flex flex-col items-center justify-start h-full mr-4">
-                            <div class="w-2.5 h-2.5 rounded-full bg-brand-accent shadow-[0_0_10px_#00ff9f] group-hover:scale-150 transition-transform"></div>
-                            <div class="w-[2px] h-full bg-brand-accent shadow-[0_0_10px_#00ff9f]"></div>
-                        </div>
-                        <div class="flex flex-col justify-end w-48 text-left border-b-2 border-brand-accent shadow-[0_4px_10px_rgba(0,255,159,0.1)] pb-2">
-                            <span class="text-brand-accent font-bold uppercase tracking-widest text-xs group-hover:text-white transition-colors">Auditoría Gratuita</span>
-                        </div>
+                        <div class="flex flex-col items-center justify-start h-full mr-4"><div class="w-2.5 h-2.5 rounded-full bg-brand-accent shadow-[0_0_10px_#00ff9f] group-hover:scale-150 transition-transform"></div><div class="w-[2px] h-full bg-brand-accent shadow-[0_0_10px_#00ff9f]"></div></div>
+                        <div class="flex flex-col justify-end w-48 text-left border-b-2 border-brand-accent shadow-[0_4px_10px_rgba(0,255,159,0.1)] pb-2"><span class="text-brand-accent font-bold uppercase tracking-widest text-xs group-hover:text-white transition-colors">Auditoría Gratuita</span></div>
                     </a>
-
                     <div class="relative w-full sm:w-auto opacity-50 hover:opacity-100 transition-opacity">
                         <div class="flex items-center h-12 text-right cursor-pointer" id="hero-soluciones-btn">
-                            <div class="flex flex-col justify-end w-48 border-b-2 border-zinc-400 hover:border-brand-accent transition-colors pb-2">
-                                <span class="text-white font-bold uppercase tracking-widest text-xs hover:text-brand-accent transition-colors flex justify-end items-center gap-1">
-                                    Ver Soluciones
-                                    <svg class="w-3 h-3 transition-transform" id="hero-soluciones-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                                </span>
-                            </div>
-                            <div class="flex flex-col items-center justify-end h-full ml-4 relative">
-                                <div class="w-[2px] h-full bg-zinc-400 hover:bg-brand-accent transition-colors"></div>
-                                <div class="w-2.5 h-2.5 rounded-full border-2 border-zinc-400 hover:border-brand-accent hover:bg-brand-accent transition-all"></div>
-                            </div>
+                            <div class="flex flex-col justify-end w-48 border-b-2 border-zinc-400 hover:border-brand-accent transition-colors pb-2"><span class="text-white font-bold uppercase tracking-widest text-xs hover:text-brand-accent transition-colors flex justify-end items-center gap-1">Ver Soluciones<svg class="w-3 h-3 transition-transform" id="hero-soluciones-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span></div>
+                            <div class="flex flex-col items-center justify-end h-full ml-4 relative"><div class="w-[2px] h-full bg-zinc-400 hover:bg-brand-accent transition-colors"></div><div class="w-2.5 h-2.5 rounded-full border-2 border-zinc-400 hover:border-brand-accent hover:bg-brand-accent transition-all"></div></div>
                         </div>
-                        
                         <div id="hero-soluciones-menu" class="absolute top-16 right-0 w-[200px] sm:w-max bg-brand-card border border-brand-border rounded-md shadow-2xl opacity-0 invisible transition-all duration-300 flex flex-col py-2 z-[999] text-left">
                             <a href="clinicas.html" class="px-5 py-2 text-[9px] hover:bg-[#111] hover:text-brand-accent text-zinc-500 transition-colors uppercase tracking-wider font-medium">Clínicas</a>
                             <a href="consultorios.html" class="px-5 py-2 text-[9px] hover:bg-[#111] hover:text-brand-accent text-zinc-500 transition-colors uppercase tracking-wider font-medium">Consultorios</a>
@@ -333,95 +182,49 @@
                 <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-5 leading-tight">Infraestructura Industrial.</h2>
                 <p class="text-zinc-400 text-lg max-w-2xl font-light mx-auto md:mx-0">Sistemas autónomos End-to-End diseñados para operar sin intervención y escalar facturación.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                
                 <div class="service-card rounded-xl p-10 flex flex-col group border border-brand-border hover:border-brand-borderHover transition-all">
-                    <div class="dot-pattern"></div>
-                    <div class="light-sweep"></div>
+                    <div class="dot-pattern"></div><div class="light-sweep"></div>
                     <div class="relative z-10 flex flex-col h-full">
-                        <div class="w-12 h-12 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center mb-10 group-hover:border-brand-accent/20 transition-colors shadow-inner relative">
-                            <div class="absolute top-0 left-0 w-3 h-3 border-l-2 border-t-2 border-brand-accentTranslucent group-hover:border-brand-accent transition-colors"></div>
-                            <svg class="w-6 h-6 text-zinc-600 group-hover:text-brand-accent transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                            </svg>
-                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center mb-10 group-hover:border-brand-accent/20 transition-colors shadow-inner relative"><div class="absolute top-0 left-0 w-3 h-3 border-l-2 border-t-2 border-brand-accentTranslucent group-hover:border-brand-accent transition-colors"></div><svg class="w-6 h-6 text-zinc-600 group-hover:text-brand-accent transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg></div>
                         <h3 class="text-xl font-bold text-white mb-4 tracking-tight">Agentes de Voz IA</h3>
-                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors mb-2">
-                            Teleoperadores autónomos entrenados en acento local.
-                        </p>
-                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors">
-                            Pre-califican leads y agendan citas médicas 24/7 sin tiempos de espera.
-                        </p>
+                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors mb-2">Teleoperadores autónomos entrenados en acento local.</p>
+                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors">Pre-califican leads y agendan citas médicas 24/7 sin tiempos de espera.</p>
                     </div>
                 </div>
-
                 <div class="service-card rounded-xl p-10 flex flex-col group border border-brand-border hover:border-brand-borderHover transition-all">
-                    <div class="dot-pattern"></div>
-                    <div class="light-sweep"></div>
+                    <div class="dot-pattern"></div><div class="light-sweep"></div>
                     <div class="relative z-10 flex flex-col h-full">
-                        <div class="w-12 h-12 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center mb-10 group-hover:border-green-500/20 transition-colors shadow-inner relative">
-                             <div class="absolute top-0 left-0 w-3 h-3 border-l-2 border-t-2 border-brand-accentTranslucent group-hover:border-green-500 transition-colors"></div>
-                            <svg class="w-6 h-6 text-zinc-600 group-hover:text-green-500 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                            </svg>
-                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center mb-10 group-hover:border-green-500/20 transition-colors shadow-inner relative"><div class="absolute top-0 left-0 w-3 h-3 border-l-2 border-t-2 border-brand-accentTranslucent group-hover:border-green-500 transition-colors"></div><svg class="w-6 h-6 text-zinc-600 group-hover:text-green-500 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg></div>
                         <h3 class="text-xl font-bold text-white mb-4 tracking-tight">Atención WhatsApp</h3>
-                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors mb-2">
-                            Embudos de venta y atención automatizada vía WhatsApp API.
-                        </p>
-                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors">
-                            Captura de datos y cierre integrado a tu CRM.
-                        </p>
+                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors mb-2">Embudos de venta y atención automatizada vía WhatsApp API.</p>
+                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors">Captura de datos y cierre integrado a tu CRM.</p>
                     </div>
                 </div>
-
                 <div class="service-card rounded-xl p-10 flex flex-col group border border-brand-border hover:border-brand-borderHover transition-all">
-                    <div class="dot-pattern"></div>
-                    <div class="light-sweep"></div>
+                    <div class="dot-pattern"></div><div class="light-sweep"></div>
                     <div class="relative z-10 flex flex-col h-full">
-                        <div class="w-12 h-12 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center mb-10 group-hover:border-brand-accentBlue/20 transition-colors shadow-inner relative">
-                             <div class="absolute top-0 left-0 w-3 h-3 border-l-2 border-t-2 border-brand-accentTranslucent group-hover:border-brand-accentBlue transition-colors"></div>
-                            <svg class="w-6 h-6 text-zinc-600 group-hover:text-brand-accentBlue transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                            </svg>
-                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center mb-10 group-hover:border-brand-accentBlue/20 transition-colors shadow-inner relative"><div class="absolute top-0 left-0 w-3 h-3 border-l-2 border-t-2 border-brand-accentTranslucent group-hover:border-brand-accentBlue transition-colors"></div><svg class="w-6 h-6 text-zinc-600 group-hover:text-brand-accentBlue transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg></div>
                         <h3 class="text-xl font-bold text-white mb-4 tracking-tight">Motores de Procesos</h3>
-                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors mb-2">
-                            Conectamos tus sistemas (CRM, Web, Email).
-                        </p>
-                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors">
-                            Extracción de leads y orquestación de flujos automática.
-                        </p>
+                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors mb-2">Conectamos tus sistemas (CRM, Web, Email).</p>
+                        <p class="text-zinc-500 text-sm leading-relaxed flex-grow font-light group-hover:text-zinc-400 transition-colors">Extracción de leads y orquestación de flujos automática.</p>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <section class="relative z-10 py-32 border-t border-brand-border bg-[#020202]">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-brand-accent text-2xl md:text-3xl mb-1 text-center tracking-[0.2em]">★★★★★</div>
-                <h2 class="text-zinc-500 text-xs font-black uppercase tracking-[0.2em] mb-4 text-center">
-                    Casos de <span class="text-brand-accent">Éxito</span>
-                </h2>
-                <p class="text-4xl md:text-5xl font-extrabold text-white tracking-tighter max-w-2xl mx-auto text-center mb-24">
-                    Soluciones reales. Resultados industriales.
-                </p>
-                
+                <h2 class="text-zinc-500 text-xs font-black uppercase tracking-[0.2em] mb-4 text-center">Casos de <span class="text-brand-accent">Éxito</span></h2>
+                <p class="text-4xl md:text-5xl font-extrabold text-white tracking-tighter max-w-2xl mx-auto text-center mb-24">Soluciones reales. Resultados industriales.</p>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    
                     <div class="glass-panel rounded-2xl p-8 border border-brand-border group relative flex flex-col hover:border-brand-accent/30 transition-colors">
                         <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,rgba(0,255,159,0.05)_0%,transparent_70%)]"></div>
                         <div class="relative z-10 flex-grow flex flex-col">
-                            <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
-                                <h4 class="text-zinc-500 text-[10px] font-black uppercase tracking-widest">Empresa: <span class="text-white">AJ Solutions</span></h4>
-                                <span class="text-[10px] font-bold bg-brand-accent/10 text-brand-accent px-2 py-1 rounded">HVAC</span>
-                            </div>
+                            <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-6"><h4 class="text-zinc-500 text-[10px] font-black uppercase tracking-widest">Empresa: <span class="text-white">AJ Solutions</span></h4><span class="text-[10px] font-bold bg-brand-accent/10 text-brand-accent px-2 py-1 rounded">HVAC</span></div>
                             <p class="text-white text-2xl font-bold tracking-tight mb-3">Motor de Ventas y Captura de Leads</p>
-                            <p class="text-zinc-400 text-sm font-light leading-relaxed mb-10">
-                                Unificación de datos dispersos y automatización de embudos comerciales por WhatsApp, desde el primer contacto hasta el seguimiento estructurado.
-                            </p>
+                            <p class="text-zinc-400 text-sm font-light leading-relaxed mb-10">Unificación de datos dispersos y automatización de embudos comerciales por WhatsApp, desde el primer contacto hasta el seguimiento estructurado.</p>
                             <div class="grid grid-cols-3 gap-4 mt-auto">
                                 <img src="casos-exito-ajsolutions/1 (1).png" alt="ajsolutions captura 1" class="w-full h-auto object-contain rounded-lg border border-white/5 shadow-2xl">
                                 <img src="casos-exito-ajsolutions/1 (2).png" alt="ajsolutions captura 2" class="w-full h-auto object-contain rounded-lg border border-white/5 shadow-2xl">
@@ -429,24 +232,15 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="glass-panel rounded-2xl p-8 border border-brand-border group relative flex flex-col hover:border-brand-accent/30 transition-colors">
                         <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,rgba(0,255,159,0.05)_0%,transparent_70%)]"></div>
                         <div class="relative z-10 flex-grow flex flex-col">
-                            <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
-                                <h4 class="text-zinc-500 text-[10px] font-black uppercase tracking-widest">Cliente: <span class="text-white">Clínica Dental</span></h4>
-                                <span class="text-[10px] font-bold bg-brand-accent/10 text-brand-accent px-2 py-1 rounded">Salud</span>
-                            </div>
+                            <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-6"><h4 class="text-zinc-500 text-[10px] font-black uppercase tracking-widest">Cliente: <span class="text-white">Clínica Dental</span></h4><span class="text-[10px] font-bold bg-brand-accent/10 text-brand-accent px-2 py-1 rounded">Salud</span></div>
                             <p class="text-white text-2xl font-bold tracking-tight mb-3">Agenda Automática y Triaje IA</p>
-                            <p class="text-zinc-400 text-sm font-light leading-relaxed mb-10">
-                                Reducción drástica de la carga administrativa manual. El sistema de IA califica urgencias médicas, responde dudas y agenda citas de forma 100% autónoma por WhatsApp.
-                            </p>
-                            <div class="flex justify-center mt-auto">
-                                <img src="casos-exito-clinica-dental/clinica-dental2.png" alt="clínica dental captura" class="w-1/2 object-contain rounded-lg border border-white/5 shadow-2xl">
-                            </div>
+                            <p class="text-zinc-400 text-sm font-light leading-relaxed mb-10">Reducción drástica de la carga administrativa manual. El sistema de IA califica urgencias médicas, responde dudas y agenda citas de forma 100% autónoma por WhatsApp.</p>
+                            <div class="flex justify-center mt-auto"><img src="casos-exito-clinica-dental/clinica-dental2.png" alt="clínica dental captura" class="w-1/2 object-contain rounded-lg border border-white/5 shadow-2xl"></div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -458,7 +252,6 @@
                 <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tighter leading-[0.95]">Tu operación <br> merece ser autónoma.</h2>
                 <p class="text-zinc-400 text-lg mb-4 max-w-2xl mx-auto font-light">Agenda una sesión de descubrimiento de 20 minutos.</p>
                 <p class="text-zinc-400 text-lg mb-14 max-w-2xl mx-auto font-light">Analizaremos tu flujo actual de clientes y te diremos exactamente dónde la IA industrial puede multiplicar tu rentabilidad.</p>
-                
                 <a href="https://wa.me/34677304620?text=Hola%20equipo%20de%20QuickAI,%20quiero%20agendar%20una%20auditor%C3%ADa." target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center gap-2 mx-auto w-max cursor-pointer">
                     <div class="w-2.5 h-2.5 rounded-full border-2 border-brand-accent group-hover:bg-brand-accent group-hover:scale-125 transition-all duration-300"></div>
                     <div class="h-[1px] w-12 bg-brand-accent"></div>
@@ -468,37 +261,23 @@
                 </a>
             </div>
         </section>
-
     </main>
 
     <footer class="border-t border-brand-border py-16 bg-brand-dark relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start text-center md:text-left">
-                
                 <div class="flex flex-col items-center md:items-start gap-4">
-                    <a href="index.html" class="flex items-center group">
-                        <img src="logo-sin-fondo.png" alt="quickAI.io Logo" class="h-6 w-auto mr-2 opacity-50 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'">
-                        <span class="text-zinc-600 text-sm font-medium tracking-tighter group-hover:text-zinc-400">quickAI<span class="text-brand-accentTranslucent group-hover:text-brand-accent transition-colors">.io</span></span>
-                    </a>
+                    <a href="index.html" class="flex items-center group"><img src="logo-sin-fondo.png" alt="quickAI.io Logo" class="h-6 w-auto mr-2 opacity-50 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'"><span class="text-zinc-600 text-sm font-medium tracking-tighter group-hover:text-zinc-400">quickAI<span class="text-brand-accentTranslucent group-hover:text-brand-accent transition-colors">.io</span></span></a>
                     <p class="text-zinc-700 text-xs mt-2">&copy; 2026 quickAI Agency.<br>Todos los derechos reservados.</p>
                 </div>
-
                 <div class="flex flex-col items-center gap-3">
                     <span class="text-zinc-600 text-[10px] font-black uppercase tracking-widest mb-1 border-b border-brand-border pb-2">Contacto Directo</span>
                     <a href="mailto:hello@quickai.agency" class="text-zinc-400 hover:text-brand-accent text-sm font-light transition-colors mb-2">hello@quickai.agency</a>
-     
                     <span class="text-zinc-600 text-[9px] font-black uppercase tracking-widest mb-0">Llamadas Directas</span>
-                    <a href="tel:+34677304620" class="text-zinc-400 hover:text-brand-accent text-sm font-light transition-colors flex items-center gap-2 group">
-                    <span class="text-lg drop-shadow-[0_0_6px_rgba(255,204,0,0.7)] group-hover:drop-shadow-[0_0_12px_rgba(255,204,0,1)] transition-all duration-300">🇪🇸</span> +34 677 304 620
-                    </a>
-                    <a href="tel:+17035844107" class="text-zinc-400 hover:text-brand-accent text-sm font-light transition-colors flex items-center gap-2 group">
-                    <span class="text-lg drop-shadow-[0_0_6px_rgba(60,120,255,0.7)] group-hover:drop-shadow-[0_0_12px_rgba(60,120,255,1)] transition-all duration-300">🇺🇸</span> +1 (703) 584-4107
-                    </a>
-                    <a href="tel:+524029053076" class="text-zinc-400 hover:text-brand-accent text-sm font-light transition-colors flex items-center gap-2 group">
-                    <span class="text-lg drop-shadow-[0_0_6px_rgba(0,180,80,0.7)] group-hover:drop-shadow-[0_0_12px_rgba(0,180,80,1)] transition-all duration-300">🇲🇽</span> +52 402 905 3076
-                     </a>
-                 </div>
-
+                    <a href="tel:+34677304620" class="text-zinc-400 hover:text-brand-accent text-sm font-light transition-colors flex items-center gap-2 group"><span class="text-lg drop-shadow-[0_0_6px_rgba(255,204,0,0.7)] group-hover:drop-shadow-[0_0_12px_rgba(255,204,0,1)] transition-all duration-300">🇪🇸</span> +34 677 304 620</a>
+                    <a href="tel:+17035844107" class="text-zinc-400 hover:text-brand-accent text-sm font-light transition-colors flex items-center gap-2 group"><span class="text-lg drop-shadow-[0_0_6px_rgba(60,120,255,0.7)] group-hover:drop-shadow-[0_0_12px_rgba(60,120,255,1)] transition-all duration-300">🇺🇸</span> +1 (703) 584-4107</a>
+                    <a href="tel:+524029053076" class="text-zinc-400 hover:text-brand-accent text-sm font-light transition-colors flex items-center gap-2 group"><span class="text-lg drop-shadow-[0_0_6px_rgba(0,180,80,0.7)] group-hover:drop-shadow-[0_0_12px_rgba(0,180,80,1)] transition-all duration-300">🇲🇽</span> +52 402 905 3076</a>
+                </div>
                 <div class="flex flex-col items-center md:items-end gap-3">
                     <span class="text-zinc-600 text-[10px] font-black uppercase tracking-widest mb-1 border-b border-brand-border pb-2">Legal y Soporte</span>
                     <a href="faq.html" class="text-zinc-500 hover:text-white text-xs font-light transition-colors">Preguntas Frecuentes (FAQ)</a>
@@ -506,154 +285,155 @@
                     <a href="terminos.html" class="text-zinc-500 hover:text-white text-xs font-light transition-colors">Términos y Condiciones</a>
                     <a href="cookies.html" class="text-zinc-500 hover:text-white text-xs font-light transition-colors">Uso de Cookies</a>
                 </div>
-
             </div>
         </div>
     </footer>
 
+    <!-- BOTÓN WHATSAPP (se queda igual) -->
     <div class="fixed bottom-6 right-6 z-[99] flex flex-col items-end gap-3">
         <a href="https://wa.me/524427166069?text=Hola%20equipo%20de%20QuickAI,%20quiero%20agendar%20una%20auditor%C3%ADa." target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-full transition-all duration-300 group" style="animation: heartbeat-smooth 2s infinite; animation-delay: 0.3s;">
             <span class="text-xs font-bold tracking-wider opacity-80 group-hover:opacity-100">agente</span>
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-            </svg>
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
         </a>
     </div>
 
+    <!-- SCRIPTS ORIGINALES -->
     <script>
-        // Lógica Navbar Móvil
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
 
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Lógica: Menú "Ver Soluciones" del Hero
         const heroBtn = document.getElementById('hero-soluciones-btn');
         const heroMenu = document.getElementById('hero-soluciones-menu');
         const heroIcon = document.getElementById('hero-soluciones-icon');
-
         if(heroBtn && heroMenu) {
-            heroBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); 
-                const isClosed = heroMenu.classList.contains('opacity-0');
-                if(isClosed) {
-                    heroMenu.classList.remove('opacity-0', 'invisible');
-                    heroMenu.classList.add('opacity-100', 'visible');
-                    heroIcon.classList.add('rotate-180');
-                } else {
-                    heroMenu.classList.add('opacity-0', 'invisible');
-                    heroMenu.classList.remove('opacity-100', 'visible');
-                    heroIcon.classList.remove('rotate-180');
-                }
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!heroBtn.contains(e.target) && !heroMenu.contains(e.target)) {
-                    heroMenu.classList.add('opacity-0', 'invisible');
-                    heroMenu.classList.remove('opacity-100', 'visible');
-                    heroIcon.classList.remove('rotate-180');
-                }
-            });
+            heroBtn.addEventListener('click', (e) => { e.stopPropagation(); const isClosed = heroMenu.classList.contains('opacity-0'); if(isClosed) { heroMenu.classList.remove('opacity-0', 'invisible'); heroMenu.classList.add('opacity-100', 'visible'); heroIcon.classList.add('rotate-180'); } else { heroMenu.classList.add('opacity-0', 'invisible'); heroMenu.classList.remove('opacity-100', 'visible'); heroIcon.classList.remove('rotate-180'); } });
+            document.addEventListener('click', (e) => { if (!heroBtn.contains(e.target) && !heroMenu.contains(e.target)) { heroMenu.classList.add('opacity-0', 'invisible'); heroMenu.classList.remove('opacity-100', 'visible'); heroIcon.classList.remove('rotate-180'); } });
         }
 
-        // Lógica de desvanecimiento al hacer scroll
         let scrollTimer;
-        window.addEventListener('scroll', () => {
-            document.body.classList.add('is-scrolling');
-            clearTimeout(scrollTimer);
-            scrollTimer = setTimeout(() => {
-                document.body.classList.remove('is-scrolling');
-            }, 150); 
-        });
+        window.addEventListener('scroll', () => { document.body.classList.add('is-scrolling'); clearTimeout(scrollTimer); scrollTimer = setTimeout(() => { document.body.classList.remove('is-scrolling'); }, 150); });
 
-        // --- LÓGICA DE LA RED NEURONAL (CANVAS) ---
         (function() {
             const canvas = document.getElementById('neural-network');
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
-            
-            let width, height;
-            let particles = [];
-            
-            // Configuración
-            const config = {
-                particleCount: 80,
-                maxDistance: 150,
-                nodeColor: 'rgba(0, 255, 159, 0.5)', 
-                lineColor: 'rgba(59, 130, 246, 0.2)'  
-            };
-
-            function resize() {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-            }
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * 1.5;
-                    this.vy = (Math.random() - 0.5) * 1.5;
-                    this.radius = Math.random() * 2 + 1;
-                }
-
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-
-                    if (this.x < 0 || this.x > width) this.vx *= -1;
-                    if (this.y < 0 || this.y > height) this.vy *= -1;
-                }
-
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = config.nodeColor;
-                    ctx.fill();
-                }
-            }
-
-            function initCanvas() {
-                resize();
-                window.addEventListener('resize', resize);
-                particles = [];
-                for (let i = 0; i < config.particleCount; i++) {
-                    particles.push(new Particle());
-                }
-                animateCanvas();
-            }
-
-            function animateCanvas() {
-                ctx.clearRect(0, 0, width, height);
-
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < config.maxDistance) {
-                            ctx.beginPath();
-                            const opacity = 1 - (distance / config.maxDistance);
-                            ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.5})`; 
-                            ctx.lineWidth = 1;
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-                requestAnimationFrame(animateCanvas);
-            }
-
-            // Iniciar solo cuando todo el HTML haya cargado
+            let width, height, particles = [];
+            const config = { particleCount: 80, maxDistance: 150, nodeColor: 'rgba(0, 255, 159, 0.5)', lineColor: 'rgba(59, 130, 246, 0.2)' };
+            function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+            class Particle { constructor() { this.x = Math.random() * width; this.y = Math.random() * height; this.vx = (Math.random() - 0.5) * 1.5; this.vy = (Math.random() - 0.5) * 1.5; this.radius = Math.random() * 2 + 1; } update() { this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > width) this.vx *= -1; if (this.y < 0 || this.y > height) this.vy *= -1; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = config.nodeColor; ctx.fill(); } }
+            function initCanvas() { resize(); window.addEventListener('resize', resize); particles = []; for (let i = 0; i < config.particleCount; i++) { particles.push(new Particle()); } animateCanvas(); }
+            function animateCanvas() { ctx.clearRect(0, 0, width, height); for (let i = 0; i < particles.length; i++) { particles[i].update(); particles[i].draw(); for (let j = i + 1; j < particles.length; j++) { const dx = particles[i].x - particles[j].x; const dy = particles[i].y - particles[j].y; const distance = Math.sqrt(dx * dx + dy * dy); if (distance < config.maxDistance) { ctx.beginPath(); const opacity = 1 - (distance / config.maxDistance); ctx.strokeStyle = 'rgba(59, 130, 246, ' + (opacity * 0.5) + ')'; ctx.lineWidth = 1; ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke(); } } } requestAnimationFrame(animateCanvas); }
             window.addEventListener('load', initCanvas);
         })();
     </script>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- CHAT WIDGET quickAI (esquina izquierda)     -->
+    <!-- ════════════════════════════════════════════ -->
+    <style>
+    #qai-chat-widget * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
+    #qai-chat-toggle { position: fixed; bottom: 24px; left: 24px; z-index: 9999; width: 58px; height: 58px; border-radius: 16px; border: 1px solid rgba(0,255,159,0.15); background: linear-gradient(145deg, #0a0a0d, #060608); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 0 30px rgba(0,255,159,0.06), 0 4px 20px rgba(0,0,0,0.5); overflow: hidden; }
+    #qai-chat-toggle::before { content: ''; position: absolute; inset: 0; border-radius: 16px; background: radial-gradient(circle at 50% 50%, rgba(0,255,159,0.04), transparent 70%); }
+    #qai-chat-toggle:hover { transform: translateY(-3px) scale(1.05); border-color: rgba(0,255,159,0.35); box-shadow: 0 0 40px rgba(0,255,159,0.12), 0 8px 30px rgba(0,0,0,0.6); }
+    #qai-chat-toggle .qai-icon { width: 26px; height: 26px; transition: all 0.3s; position: relative; z-index: 2; }
+    #qai-chat-toggle .qai-icon-chat { display: block; } #qai-chat-toggle .qai-icon-close { display: none; }
+    #qai-chat-toggle.active .qai-icon-chat { display: none; } #qai-chat-toggle.active .qai-icon-close { display: block; }
+    #qai-chat-toggle .qai-pulse { position: absolute; inset: -4px; border-radius: 20px; border: 2px solid rgba(0,255,159,0.25); animation: qai-pulse-ring 2.5s ease-out infinite; }
+    @keyframes qai-pulse-ring { 0% { transform: scale(1); opacity: 0.5; } 70% { transform: scale(1.15); opacity: 0; } 100% { transform: scale(1.15); opacity: 0; } }
+    #qai-chat-toggle .qai-status { position: absolute; top: -2px; right: -2px; width: 13px; height: 13px; border-radius: 50%; background: #00ff9f; border: 3px solid #080809; z-index: 3; box-shadow: 0 0 8px rgba(0,255,159,0.5); }
+    #qai-chat-label { position: fixed; bottom: 32px; left: 92px; z-index: 9999; font-size: 10px; font-weight: 700; color: #00ff9f; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; pointer-events: none; transition: opacity 0.3s; }
+    #qai-chat-toggle:hover ~ #qai-chat-label { opacity: 1; } #qai-chat-toggle.active ~ #qai-chat-label { opacity: 0; }
+    #qai-chat-panel { position: fixed; bottom: 96px; left: 24px; z-index: 9998; width: 400px; max-width: calc(100vw - 48px); height: 560px; max-height: calc(100vh - 140px); background: #060607; border: 1px solid rgba(255,255,255,0.04); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.95); transition: all 0.4s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 40px rgba(0,255,159,0.03); }
+    #qai-chat-panel.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    #qai-chat-header { padding: 16px 20px; background: linear-gradient(180deg, #0a0a0c, #060607); border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .qai-avatar { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, rgba(0,255,159,0.1), rgba(59,130,246,0.08)); border: 1px solid rgba(0,255,159,0.12); display: flex; align-items: center; justify-content: center; position: relative; flex-shrink: 0; }
+    .qai-avatar svg { width: 20px; height: 20px; color: #00ff9f; }
+    .qai-avatar .qai-live { position: absolute; bottom: -1px; right: -1px; width: 10px; height: 10px; border-radius: 50%; background: #00ff9f; border: 2px solid #0a0a0c; box-shadow: 0 0 6px rgba(0,255,159,0.5); }
+    .qai-hdr-info h3 { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+    .qai-hdr-info p { font-size: 10px; color: #00ff9f; font-weight: 500; letter-spacing: 0.04em; display: flex; align-items: center; gap: 5px; }
+    .qai-hdr-info .qai-blink { width: 5px; height: 5px; background: #00ff9f; border-radius: 50%; animation: qai-blink 1.5s ease-in-out infinite; }
+    @keyframes qai-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    #qai-minimize { margin-left: auto; width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
+    #qai-minimize:hover { background: rgba(255,255,255,0.06); } #qai-minimize svg { width: 14px; height: 14px; color: rgba(255,255,255,0.3); }
+    #qai-chat-messages { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 12px; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.05) transparent; }
+    #qai-chat-messages::-webkit-scrollbar { width: 3px; } #qai-chat-messages::-webkit-scrollbar-track { background: transparent; } #qai-chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.05); border-radius: 3px; }
+    .qai-msg { max-width: 85%; animation: qai-msg-in 0.3s cubic-bezier(0.16,1,0.3,1); }
+    @keyframes qai-msg-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .qai-msg-bot { align-self: flex-start; } .qai-msg-user { align-self: flex-end; }
+    .qai-msg-bubble { padding: 11px 15px; border-radius: 14px; font-size: 13px; line-height: 1.65; letter-spacing: -0.01em; }
+    .qai-msg-bot .qai-msg-bubble { background: #0c0c0f; border: 1px solid rgba(255,255,255,0.04); color: #c8c8d0; border-bottom-left-radius: 4px; }
+    .qai-msg-bot .qai-msg-bubble a { color: #00ff9f; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,255,159,0.3); transition: border-color 0.2s; }
+    .qai-msg-bot .qai-msg-bubble a:hover { border-color: #00ff9f; }
+    .qai-msg-user .qai-msg-bubble { background: linear-gradient(135deg, rgba(0,255,159,0.1), rgba(59,130,246,0.06)); border: 1px solid rgba(0,255,159,0.1); color: #e0e0e8; border-bottom-right-radius: 4px; }
+    .qai-msg-time { font-size: 9px; color: rgba(255,255,255,0.15); margin-top: 3px; padding: 0 4px; }
+    .qai-msg-bot .qai-msg-time { text-align: left; } .qai-msg-user .qai-msg-time { text-align: right; }
+    .qai-typing { display: flex; gap: 4px; padding: 12px 16px; align-items: center; }
+    .qai-typing-dot { width: 5px; height: 5px; border-radius: 50%; background: #00ff9f; opacity: 0.3; animation: qai-tp 1.2s ease-in-out infinite; }
+    .qai-typing-dot:nth-child(2) { animation-delay: 0.15s; } .qai-typing-dot:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes qai-tp { 0%, 60%, 100% { opacity: 0.15; transform: scale(0.8); } 30% { opacity: 0.7; transform: scale(1.1); } }
+    .qai-quick-actions { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 18px 10px; flex-shrink: 0; }
+    .qai-qbtn { padding: 7px 13px; border-radius: 20px; border: 1px solid rgba(0,255,159,0.08); background: rgba(0,255,159,0.03); color: rgba(0,255,159,0.85); font-size: 11px; font-weight: 600; cursor: pointer; transition: all 0.2s; letter-spacing: 0.01em; }
+    .qai-qbtn:hover { background: rgba(0,255,159,0.08); border-color: rgba(0,255,159,0.2); transform: translateY(-1px); color: #00ff9f; }
+    #qai-chat-input-wrap { padding: 12px 14px; border-top: 1px solid rgba(255,255,255,0.04); background: #080809; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    #qai-chat-input { flex: 1; background: #0c0c0f; border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: 11px 14px; color: #e0e0e8; font-size: 13px; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.3s; letter-spacing: -0.01em; }
+    #qai-chat-input::placeholder { color: rgba(255,255,255,0.15); } #qai-chat-input:focus { border-color: rgba(0,255,159,0.18); }
+    #qai-chat-send { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #00ff9f, #00cc7f); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; }
+    #qai-chat-send:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0,255,159,0.25); } #qai-chat-send:active { transform: scale(0.95); }
+    #qai-chat-send svg { width: 16px; height: 16px; color: #020202; }
+    .qai-powered { padding: 6px; text-align: center; font-size: 8px; color: rgba(255,255,255,0.08); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; background: #060607; }
+    @media (max-width: 480px) { #qai-chat-panel { bottom: 0; left: 0; width: 100vw; max-width: 100vw; height: 100vh; max-height: 100vh; border-radius: 0; } #qai-chat-toggle { bottom: 16px; left: 16px; } #qai-chat-label { display: none; } }
+    </style>
+
+    <div id="qai-chat-widget">
+      <button id="qai-chat-toggle" aria-label="Abrir chat con IA">
+        <div class="qai-pulse"></div><div class="qai-status"></div>
+        <svg class="qai-icon qai-icon-chat" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color:#00ff9f"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+        <svg class="qai-icon qai-icon-close" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color:#00ff9f"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+      <span id="qai-chat-label">Chat IA</span>
+      <div id="qai-chat-panel">
+        <div id="qai-chat-header">
+          <div class="qai-avatar"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg><div class="qai-live"></div></div>
+          <div class="qai-hdr-info"><h3>quickAI Agent</h3><p><span class="qai-blink"></span> En línea</p></div>
+          <button id="qai-minimize" title="Minimizar"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+        </div>
+        <div id="qai-chat-messages">
+          <div class="qai-msg qai-msg-bot"><div class="qai-msg-bubble">¡Hola! Soy el asistente de <strong style="color:#00ff9f">quickAI</strong>. Puedo ayudarte con información sobre nuestros servicios, agendar una auditoría, o resolver cualquier duda. ¿En qué te puedo ayudar?</div></div>
+        </div>
+        <div class="qai-quick-actions" id="qai-quick-actions">
+          <button class="qai-qbtn" data-msg="Quiero agendar una auditoría gratuita">📅 Agendar auditoría</button>
+          <button class="qai-qbtn" data-msg="¿Qué servicios ofrecen?">⚡ Servicios</button>
+          <button class="qai-qbtn" data-msg="¿Cuánto cuesta?">💰 Precios</button>
+          <button class="qai-qbtn" data-msg="Necesito soporte técnico">🛠️ Soporte</button>
+        </div>
+        <div id="qai-chat-input-wrap">
+          <input type="text" id="qai-chat-input" placeholder="Escribe tu mensaje..." autocomplete="off" />
+          <button id="qai-chat-send"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg></button>
+        </div>
+        <div class="qai-powered">Powered by quickAI.io</div>
+      </div>
+    </div>
+
+    <script>
+    (function(){
+      var WEBHOOK_URL='https://panel1.quickai.agency/webhook/webchat';
+      var sessionId='qai_'+Math.random().toString(36).substring(2,10)+'_'+Date.now();
+      var toggle=document.getElementById('qai-chat-toggle'),panel=document.getElementById('qai-chat-panel'),messages=document.getElementById('qai-chat-messages'),input=document.getElementById('qai-chat-input'),sendBtn=document.getElementById('qai-chat-send'),quickActions=document.getElementById('qai-quick-actions'),minimize=document.getElementById('qai-minimize');
+      toggle.addEventListener('click',function(){panel.classList.toggle('open');toggle.classList.toggle('active');if(panel.classList.contains('open'))input.focus();});
+      minimize.addEventListener('click',function(){panel.classList.remove('open');toggle.classList.remove('active');});
+      function sendMessage(text){if(!text.trim())return;if(quickActions)quickActions.style.display='none';addMessage(text,'user');input.value='';showTyping();fetchResponse(text);}
+      function addMessage(text,sender){var t=new Date();var time=t.getHours().toString().padStart(2,'0')+':'+t.getMinutes().toString().padStart(2,'0');var div=document.createElement('div');div.className='qai-msg qai-msg-'+sender;if(sender==='user'){div.innerHTML='<div class="qai-msg-bubble">'+escapeHtml(text)+'</div><div class="qai-msg-time">'+time+'</div>';}else{div.innerHTML='<div class="qai-msg-bubble">'+formatBotText(text)+'</div><div class="qai-msg-time">'+time+'</div>';}messages.appendChild(div);messages.scrollTop=messages.scrollHeight;}
+      function formatBotText(text){var safe=escapeHtml(text);safe=safe.replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');safe=safe.replace(/\n/g,'<br>');return safe;}
+      function showTyping(){var d=document.createElement('div');d.className='qai-msg qai-msg-bot';d.id='qai-typing';d.innerHTML='<div class="qai-msg-bubble"><div class="qai-typing"><div class="qai-typing-dot"></div><div class="qai-typing-dot"></div><div class="qai-typing-dot"></div></div></div>';messages.appendChild(d);messages.scrollTop=messages.scrollHeight;}
+      function hideTyping(){var t=document.getElementById('qai-typing');if(t)t.remove();}
+      async function fetchResponse(text){try{var res=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,sessionId:sessionId,timestamp:new Date().toISOString(),source:'web_chat',page:window.location.pathname})});hideTyping();if(res.ok){var data=await res.json();var reply=data.output||data.response||data.text||data.message||'Recibido, un momento.';addMessage(reply,'bot');}else{addMessage('Disculpa, hubo un error. Contáctanos por WhatsApp: https://wa.me/34677304620','bot');}}catch(err){hideTyping();console.error('quickAI chat error:',err);addMessage('Error de conexión. Contáctanos por WhatsApp: https://wa.me/34677304620','bot');}}
+      sendBtn.addEventListener('click',function(){sendMessage(input.value);});
+      input.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage(input.value);}});
+      document.querySelectorAll('.qai-qbtn').forEach(function(btn){btn.addEventListener('click',function(){var msg=btn.getAttribute('data-msg');if(msg)sendMessage(msg);});});
+      function escapeHtml(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+    })();
+    </script>
+
 </body>
 </html>

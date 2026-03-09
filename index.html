@@ -340,8 +340,13 @@
     #qai-chat-toggle .qai-icon-chat { display: block; } #qai-chat-toggle .qai-icon-close { display: none; }
     #qai-chat-toggle.active .qai-icon-chat { display: none; } #qai-chat-toggle.active .qai-icon-close { display: block; }
     #qai-chat-toggle .qai-pulse { position: absolute; inset: -4px; border-radius: 20px; border: 2px solid rgba(0,255,159,0.25); animation: qai-pulse-ring 2.5s ease-out infinite; }
-    @keyframes qai-pulse-ring { 0% { transform: scale(1); opacity: 0.5; } 70% { transform: scale(1.15); opacity: 0; } 100% { transform: scale(1.15); opacity: 0; } }
-    #qai-chat-toggle .qai-status { position: absolute; top: -2px; right: -2px; width: 13px; height: 13px; border-radius: 50%; background: #00ff9f; border: 3px solid #080809; z-index: 3; box-shadow: 0 0 8px rgba(0,255,159,0.5); }
+    @keyframes qai-heartbeat {
+    0% { box-shadow: 0 0 0 0 rgba(0, 255, 159, 0.5); transform: scale(1); }
+    30% { box-shadow: 0 0 0 10px rgba(0, 255, 159, 0); transform: scale(1.05); }
+    50% { box-shadow: 0 0 0 0 rgba(0, 255, 159, 0); transform: scale(1); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 255, 159, 0); transform: scale(1); }
+}
+    animation: qai-heartbeat 2s infinite;
     #qai-chat-label { position: fixed; bottom: 32px; left: 92px; z-index: 9999; font-size: 10px; font-weight: 700; color: #00ff9f; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; pointer-events: none; transition: opacity 0.3s; }
     #qai-chat-toggle:hover ~ #qai-chat-label { opacity: 1; } #qai-chat-toggle.active ~ #qai-chat-label { opacity: 0; }
     #qai-chat-panel { position: fixed; bottom: 96px; left: 24px; z-index: 9998; width: 400px; max-width: calc(100vw - 48px); height: 560px; max-height: calc(100vh - 140px); background: #060607; border: 1px solid rgba(255,255,255,0.04); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.95); transition: all 0.4s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 40px rgba(0,255,159,0.03); }

@@ -437,8 +437,19 @@
       var WEBHOOK_URL='https://panel1.quickai.agency/webhook/webchat';
       var sessionId='qai_'+Math.random().toString(36).substring(2,10)+'_'+Date.now();
       var toggle=document.getElementById('qai-chat-toggle'),panel=document.getElementById('qai-chat-panel'),messages=document.getElementById('qai-chat-messages'),input=document.getElementById('qai-chat-input'),sendBtn=document.getElementById('qai-chat-send'),quickActions=document.getElementById('qai-quick-actions'),minimize=document.getElementById('qai-minimize');
-      toggle.addEventListener('click',function(){panel.classList.toggle('open');toggle.classList.toggle('active');if(panel.classList.contains('open'))input.focus();});
-      minimize.addEventListener('click',function(){panel.classList.remove('open');toggle.classList.remove('active');});
+      toggle.addEventListener('click',function(){
+  panel.classList.toggle('open');
+  toggle.classList.toggle('active');
+  if(panel.classList.contains('open')){
+    input.focus();
+    toggle.style.display='none';
+  }
+});
+      minimize.addEventListener('click',function(){
+  panel.classList.remove('open');
+  toggle.classList.remove('active');
+  toggle.style.display='flex';
+});
       function sendMessage(text){if(!text.trim())return;if(quickActions)quickActions.style.display='none';addMessage(text,'user');input.value='';showTyping();fetchResponse(text);}
       function addMessage(text,sender){var t=new Date();var time=t.getHours().toString().padStart(2,'0')+':'+t.getMinutes().toString().padStart(2,'0');var div=document.createElement('div');div.className='qai-msg qai-msg-'+sender;if(sender==='user'){div.innerHTML='<div class="qai-msg-bubble">'+escapeHtml(text)+'</div><div class="qai-msg-time">'+time+'</div>';}else{div.innerHTML='<div class="qai-msg-bubble">'+formatBotText(text)+'</div><div class="qai-msg-time">'+time+'</div>';}messages.appendChild(div);messages.scrollTop=messages.scrollHeight;}
       function formatBotText(text){var safe=escapeHtml(text);safe=safe.replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');safe=safe.replace(/\n/g,'<br>');return safe;}

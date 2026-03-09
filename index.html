@@ -382,7 +382,19 @@
     #qai-chat-send:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0,255,159,0.25); } #qai-chat-send:active { transform: scale(0.95); }
     #qai-chat-send svg { width: 16px; height: 16px; color: #020202; }
     .qai-powered { padding: 6px; text-align: center; font-size: 8px; color: rgba(255,255,255,0.08); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; background: #060607; }
-    @media (max-width: 480px) { #qai-chat-panel { bottom: 0; left: 0; width: 100vw; max-width: 100vw; height: 100vh; max-height: 100vh; border-radius: 0; } #qai-chat-toggle { bottom: 16px; left: 16px; } #qai-chat-label { display: none; } }
+    @media (max-width: 480px) {
+  #qai-chat-panel {
+    bottom: 0; left: 0; right: 0; width: 100vw;
+    max-width: 100vw; height: 85vh;
+    max-height: 85vh; border-radius: 16px 16px 0 0;
+  }
+  #qai-chat-panel.open ~ #qai-chat-toggle { display: none; }
+  #qai-chat-panel.open ~ #qai-chat-label { display: none; }
+  #qai-chat-toggle { bottom: 16px; left: 16px; width: 50px; height: 50px; }
+  #qai-chat-label { display: none; }
+  #qai-chat-input-wrap { padding: 10px 12px 24px 12px; }
+  .qai-quick-actions { padding: 0 12px 8px; }
+}
     </style>
 
     <div id="qai-chat-widget">
